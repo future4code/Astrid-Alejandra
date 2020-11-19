@@ -1,0 +1,14 @@
+body {
+    background-color: burlywood;
+}
+h1 {
+    color: #8b0000;
+    font-family: 'Homemade Apple', cursive;
+    font-size: 1.75em;
+    margin-bottom: 10px;
+}
+#subtitle {
+    font-family: 'Amatic SC', cursive;
+    font-size: 2em;
+    margin: 4px;
+}
