@@ -1,5 +1,6 @@
 body {
     background-color: burlywood;
+    margin: 0;
 }
 h1 {
     color: #8b0000;
@@ -11,4 +12,35 @@ h1 {
     font-family: 'Amatic SC', cursive;
     font-size: 2em;
     margin: 4px;
+}
+.header {
+    background-color:#8b0000;
+    font-family: 'Homemade Apple', cursive;
+    color: lightgoldenrodyellow;
+    margin: 0;
+    padding: 10px;
+}
+a:link { 
+    color: lightgoldenrodyellow;
+    text-decoration: none;
+}
+a:visited {
+    color: lightgoldenrodyellow;
+    text-decoration: none;
+}
+a:hover {
+    color: lightgoldenrodyellow;
+    text-decoration: none;
+}
+a:active {
+    color: lightgoldenrodyellow;
+    text-decoration: none;
+}
+a {
+    display: inline;
+    padding: 12px
+}
+.footer {
+    background-color: midnightblue;
+
 }
