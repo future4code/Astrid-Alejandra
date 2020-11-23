@@ -103,6 +103,8 @@ div:last-child {
 
 table {
     width: 60%;
+    text-align: center;
+    margin: auto;
 }
 
 td button {
@@ -128,7 +130,10 @@ td button {
     font-size: 10px;
     color: black;
 }
-
+#back-button2 {
+    text-align: center;
+    margin-top: 300px;
+}
 #back-button:hover {
     background-color: #635a3d
 }
