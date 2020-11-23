@@ -9,29 +9,22 @@
     padding: 0;
     font-family: 'Roboto', sans-serif;
 }
-
 h2 {
     background-color: #fe7e02;
     padding: 10px 5px 10px 5px;
     color: white;
     text-align: center;
 }
-
 input {
     height: 20px;
     width: 500px;
 }
-
-
 img {
     width: 100px;
 }
-
 div>p:first-child {
     display: inline;
 }
-
-
 .botao-amarelo {
     background-color: #ffaf43;
     width: 250px;
@@ -40,7 +33,7 @@ div>p:first-child {
     font-size: 20px;
     color: white;
     display: block;
-    margin: 100px auto 0 auto;
+    margin: 100px auto;
     border: none;
 }
 a {
@@ -49,15 +42,11 @@ a {
 .botao-amarelo:hover {
     background-color: #c44f00;
 }
-
 .container {
-    height: 500px;
+    height: 300px;
     text-align: center;
+    padding: 100px 0;
 }
-
-
-
-
 /** 
   *
   *  ESTILOS HOME 
@@ -69,20 +58,19 @@ a {
     color: white;
     padding-top: 100px;
 }
-#container-de-descricao>ol {
+#lista {
     padding: 15px 0px;
+    list-style-image: none;
+    list-style-type: decimal;
 }
-
 #container-para-comprar {
     background-color: #e7eb90;
 }
-
 #container-para-comprar>p {
     color: #c44f00;
     padding: 100px 0;
     font-size: 60px;
 }
-
 /**
   *
   *  ESTILOS COMPRAR 
@@ -93,13 +81,11 @@ div:nth-child(2),
 div:last-child {
     text-align: center;
 }
-
 table {
     width: 60%;
     text-align: center;
     margin: auto;
 }
-
 td button {
     background-color: #fadf63;
     width: 150px;
@@ -108,15 +94,14 @@ td button {
     color: black;
     border: none;
 }
-
 button:hover {
     color: white;
     background-color: orange;
 }
-
 .container-do-search {
     margin-top: 20px;
     height: 100px;
+    text-align: center;
 }
 input {
     border-top: none;
@@ -124,11 +109,9 @@ input {
     border-bottom: 2px solid black;
     border-left: none;
 }
-
 td img {
     width: 50px;
 }
-
 #back-button {
     background-color: white;
     width: 100px;
@@ -154,5 +137,5 @@ td img {
     border: none;
 }
 #buscar:hover {
-    background-color: lightgray;
+    opacity: 0.5;
 }
