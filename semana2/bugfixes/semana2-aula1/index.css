@@ -54,14 +54,7 @@ a {
     text-align: center;
 }
 
-.icone {
-    height: 15px;
-    width: 15px;
-}
-#buscar {
-    background-color: white;
-    border: none;
-}
+
 
 
 /** 
@@ -124,6 +117,12 @@ button:hover {
     margin-top: 20px;
     height: 100px;
 }
+input {
+    border-top: none;
+    border-right: none;
+    border-bottom: 2px solid black;
+    border-left: none;
+}
 
 td img {
     width: 50px;
@@ -144,4 +143,15 @@ td img {
 }
 #back-button:hover {
     background-color: #635a3d
+}
+.icone {
+    height: 15px;
+    width: 15px;
+}
+#buscar {
+    background-color: white;
+    border: none;
+}
+#buscar:hover {
+    background-color: lightgray;
 }
