@@ -21,9 +21,6 @@ input {
     width: 500px;
 }
 
-button:focus {
-    color: white;
-}
 
 img {
     width: 100px;
@@ -115,6 +112,12 @@ td button {
     height: 30px;
     border-radius: 5px;
     color: black;
+    border: none;
+}
+
+button:hover {
+    color: white;
+    background-color: orange;
 }
 
 .container-do-search {
@@ -124,9 +127,6 @@ td button {
 
 td img {
     width: 50px;
-}
-td button {
-    border: none;
 }
 
 #back-button {
