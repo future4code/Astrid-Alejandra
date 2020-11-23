@@ -120,6 +120,12 @@ td button {
     height: 100px;
 }
 
+td img {
+    width: 50px;
+}
+td button {
+    border: none;
+}
 
 #back-button {
     background-color: white;
