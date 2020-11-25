@@ -19,15 +19,18 @@ body {
 #content2 {
     display: flex;
 }
-/* #blank {
+#blank {
     display: flex;
-} */
+}
 #vertical-middle-container {
     display: flex;
     flex-direction: column;
 }
 #image {
-
+    display: flex;
+}
+#extra {
+    display: flex;
 }
 .green-background {
     background-color: green;
