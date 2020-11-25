@@ -6,7 +6,29 @@ body {
     font-size: 10px;
     color: white;
 }
+#main-container {
+    display: flex;
+    flex-direction: column;
+}
+#top-container {
+    display: flex;
+}
+#middle-container {
+    display: flex;
+}
+#content2 {
+    display: flex;
+}
+/* #blank {
+    display: flex;
+} */
+#vertical-middle-container {
+    display: flex;
+    flex-direction: column;
+}
+#image {
 
+}
 .green-background {
     background-color: green;
 }
