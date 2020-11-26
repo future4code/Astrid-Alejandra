@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+}
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.5fr 1fr 1fr 1fr 0.5fr;
+}
+
+article {
+    border: 1px solid grey;
+    
+}
+
+
+
+
+#botao {
+    height: 15px;
+    width: 15px;
+}
