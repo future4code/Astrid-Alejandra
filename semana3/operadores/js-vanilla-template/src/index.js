@@ -18,7 +18,7 @@ f. 9
 */
 
 //Exercício Escrita 1
-/*let suaIdade = null
+let suaIdade = null
 let idadeAmiga = null
 
 suaIdade=prompt("Qual é a sua idade?")
@@ -30,10 +30,10 @@ console.log("Sua idade é maior do que a da sua melhor amiga?", relacao)
 
 let diferenca = Number(suaIdade) - Number(idadeAmiga)
 
-console.log("A diferença de idade entre vocês é", diferenca "anos.")*/
+console.log(`A diferença de idade entre vocês é ${diferenca} anos`)
 
 //Exercício Escrita 2
-/*let numeroPar = null
+let numeroPar = null
 
 numeroPar = prompt("Digite um número par")
 
@@ -43,25 +43,25 @@ console.log(Number(numeroPar)%2)
  Se o usuário inserir um número ímpar,
  o resto é 1*/
 
- //Exercício Escrita 3
-/*
- let listaDeTarefas = []
- listaDeTarefas[0] = prompt("Indique uma tarefa pendente")
- listaDeTarefas[1] = prompt("Indique outra tarefa pendente")
- listaDeTarefas[2] = prompt("E mais uma!")
+//Exercício Escrita 3
 
- console.log(listaDeTarefas)
+let listaDeTarefas = []
+listaDeTarefas[0] = prompt("Indique uma tarefa pendente")
+listaDeTarefas[1] = prompt("Indique outra tarefa pendente")
+listaDeTarefas[2] = prompt("E mais uma!")
 
- let tarefaFeita = prompt("Indique o número da tarefa que você já fez")
+console.log(listaDeTarefas)
 
- indiceDaTarefaFeita = Number(tarefaFeita) - 1
+let tarefaFeita = prompt("Indique o número da tarefa que você já fez")
 
- listaDeTarefas.splice(indiceDaTarefaFeita, 1)
+indiceDaTarefaFeita = Number(tarefaFeita) - 1
 
- console.log(listaDeTarefas)
-*/
+listaDeTarefas.splice(indiceDaTarefaFeita, 1)
+
+console.log(listaDeTarefas)
+
 //Exercício Escrita 4
-/*
+
 let nome = null
 let email = null
 
@@ -69,10 +69,9 @@ nome = prompt("Digite seu nome")
 email = prompt("Digite seu melhor email!")
 
 console.log(`O email ${email} foi cadastrado com sucesso. Seja bem-vinda(o), ${nome}!`)
-*/
+
 //Desafio 1
 //a
-/*
 const tempFa = 77
 const tempKa = (tempFa - 32) * 5 / 9 + 273.15
 
@@ -97,10 +96,9 @@ const tempFd = (tempCd) * 9 / 5 + 32
 const tempKd = (tempFd - 32) * 5 / 9 + 273.15
  
 console.log(`${tempFd}F e ${tempKd}K`)
-*/
 
 //Desafio 2
-/*
+
 const kwh = 0.05
 let consumoRes = prompt("Indique seu consumo mensal, em quilowatt-hora")
 
@@ -111,7 +109,7 @@ console.log(`O valor a pagar nesse mês é ${aPagar}R$`)
 //b
 let desconto = aPagar * 0.85
 console.log(`O seu desconto é de 15%, o novo valor a pagar é ${desconto}R$`)
-*/
+
 //Desafio 3
 //a
 const massaLb = 20
