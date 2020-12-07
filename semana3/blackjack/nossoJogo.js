@@ -10,6 +10,7 @@
  * 
  * 
  */
+/*
 
  console.log("Bem-vindo ao jogo de Blackjack!")
 
@@ -18,9 +19,20 @@
     const userCard2 = comprarCarta()
     const pcCard1 = comprarCarta()
     const pcCard2 = comprarCarta()
+    const userPont = userCard1.valor + userCard2.valor
+    const pcPont =  pcCard1.valor + pcCard2.valor
 
-    console.log(userCard1, userCard2, pcCard1, pcCard2)
+       console.log(`Usuário - cartas: ${userCard1.texto} ${userCard2.texto} - pontuação ${userPont}`)
+       console.log (`Computador - cartas: ${pcCard1.texto} ${pcCard2.texto} - pontuação ${pcPont}`)
+      if (userPont === pcPont){
+         console.log("Empate!")
+      } else if (userPont > pcPont){
+         console.log("O usuário ganhou!")
+      } else if (userPont < pcPont){
+         console.log("O computador ganhou!")
+      }
 
  } else {
     console.log("O jogo acabou!")
  }
+ */
