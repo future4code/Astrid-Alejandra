@@ -1,7 +1,11 @@
 import React from 'react';
 import './App.css';
+import fotoPerfil from './images/bemporad-labedin.jpeg';
+import fotoRoraima from './images/bemporad-roraima.jpg';
+import fotoVinho from './images/servicovinho.jpg'
 import CardGrande from './components/CardGrande/CardGrande';
 import ImagemButton from './components/ImagemButton/ImagemButton';
+import CardPequeno from './components/CardPequeno/CardPequeno'
 
 function App() {
   return (
@@ -9,9 +13,9 @@ function App() {
       <div className="page-section-container">
         <h2>Dados pessoais</h2>
         <CardGrande 
-          imagem="https://uploads-ssl.webflow.com/5d640f4558306be99cf47a0e/5dd57846babb597b77c6bb1d_PerfilFuture4_cor.png" 
-          nome="Astrodev" 
-          descricao="Oi, eu sou o Astrodev. Sou o chefe dos alunos da Labenu. Adoro pedir e-mails na sexta-feira e esperar os alunos responderem só para responder com uma bronca e dar mais trabalho para eles."
+          imagem={fotoPerfil} 
+          nome="Ástrid Bemporad" 
+          descricao="Oi, eu sou a Ástrid! Tenho 26 anos, moro no Brasil mas sou da Venezuela, e atualmente estou estudando para ser desenvolvedora e me dedicar a trabalhos na área de tecnologia."
         />
         
         <ImagemButton 
@@ -19,19 +23,25 @@ function App() {
           texto="Ver mais"
         />
       </div>
+      <div className="page-section-container">
+        <CardPequeno />
+      </div>
+      <div className="page-section-container">
+        <CardPequeno />
+      </div>
 
       <div className="page-section-container">
         <h2>Experiências profissionais</h2>
         <CardGrande 
-          imagem="https://s3.amazonaws.com/future4.com.br/static/headf4-c492117ca2373dc85ca81bf715b3dc2a.png" 
-          nome="Labenu" 
-          descricao="Formando desenvolvedores para o mercado de trabalho!" 
+          imagem={fotoRoraima}
+          nome="Guia de Turismo" 
+          descricao="Guia de Turismo no Monte Roraima." 
         />
         
         <CardGrande 
-          imagem="https://imagens.canaltech.com.br/empresas/4418.400.jpg" 
-          nome="NASA" 
-          descricao="Apontando defeitos." 
+          imagem={fotoVinho} 
+          nome="Garçonete" 
+          descricao="Serviços de requinte em vários hoteis e restaurantes de Petrópolis e Caracas." 
         />
       </div>
 
