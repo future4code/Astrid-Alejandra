@@ -8,21 +8,30 @@ import iconeCoracaoPreto from '../../img/favorite.svg'
 import iconeComentario from '../../img/comment_icon.svg'
 import {SecaoComentario} from '../SecaoComentario/SecaoComentario'
 
-class Post extends React.Component {
+export class Post extends React.Component {
   state = {
     curtido: false,
     numeroCurtidas: 0,
     comentando: false,
     numeroComentarios: 0
   }
-
+ 
   onClickCurtida = () => {
     this.setState({
-      curtido: !this.state.curtido,
-      valorContador: this.state.numeroCurtidas + 1,
-      })
+     curtido: !this.state.curtido
+    // achei que estava usando o ! para ter acesso ao curtido: true, quer dizer, o coração preto. então o !this.state.curtido, simplesmente muda o boolean que esteja no value, seja qual for. então o inicial ainda é false. 
+    })
+    if(this.state.curtido) {
+    //então, se this.state.curtido = true, isso, mas a função vai correr no else, pois o valor inicial é false. 
+      this.state.numeroCurtidas = this.state.numeroCurtidas - 1
+      console.log("Descurtiu")
+    //console.log me salvando, porque não tava entendendo muito bem, e achei que tava começando com o valor true, só que não, o valor inicial não foi mudado. 
+    }else{
+    //como a função começa a correr aqui, é no else que vai estar o mais um. foi difícil mas entendi!
+      this.state.numeroCurtidas = this.state.numeroCurtidas + 1
+      console.log("Curtiu")
     }
-  
+  }
 
   onClickComentario = () => {
     this.setState({
