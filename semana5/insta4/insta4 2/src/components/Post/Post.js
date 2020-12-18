@@ -6,6 +6,8 @@ import {IconeComContador} from '../IconeComContador/IconeComContador'
 import iconeCoracaoBranco from '../../img/favorite-white.svg'
 import iconeCoracaoPreto from '../../img/favorite.svg'
 import iconeComentario from '../../img/comment_icon.svg'
+import iconeSalvadoBranco from '../../img/bookmark-white.svg'
+import iconeSalvadoPreto from '../../img/bookmark-black.svg'
 import {SecaoComentario} from '../SecaoComentario/SecaoComentario'
 
 export class Post extends React.Component {
@@ -13,7 +15,8 @@ export class Post extends React.Component {
     curtido: false,
     numeroCurtidas: 0,
     comentando: false,
-    numeroComentarios: 0
+    numeroComentarios: 0,
+    salvado: false,
   }
  
   onClickCurtida = () => {
@@ -46,6 +49,12 @@ export class Post extends React.Component {
     })
   }
 
+  onClickSalvar = () => {
+    this.setState({
+      salvado: !this.state.salvado
+    })
+  }
+
   render() {
     let iconeCurtida
 
@@ -61,9 +70,16 @@ export class Post extends React.Component {
       componenteComentario = <SecaoComentario aoEnviar={this.aoEnviarComentario}/>
     }
 
+    let iconeSalvado
+    if(this.state.salvado) {
+      iconeSalvado = iconeSalvadoPreto
+    } else {
+      iconeSalvado = iconeSalvadoBranco
+    }
+
     return <div className={'post-container'}>
       <div className={'post-header'}>
-        <img className={'user-photo'} src={this.props.fotoUsuario} alt={'Imagem do usuario'}/>
+        <img className={'user-photo'} src={publicacao.fotoUsuario} alt={'Imagem do usuario'}/>
         <p>{this.props.nomeUsuario}</p>
       </div>
 
@@ -75,11 +91,14 @@ export class Post extends React.Component {
           onClickIcone={this.onClickCurtida}
           valorContador={this.state.numeroCurtidas}
         />
-
         <IconeComContador
           icone={iconeComentario}
           onClickIcone={this.onClickComentario}
           valorContador={this.state.numeroComentarios}
+        />
+        <IconeComContador
+          icone={iconeSalvado}
+          onClickIcone={this.onClickSalvar}
         />
       </div>
       {componenteComentario}
