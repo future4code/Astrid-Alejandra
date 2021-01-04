@@ -26,15 +26,19 @@ class App extends React.Component {
 
   listaDeComponentes = this.state.publicacoes.map((publicacao) => {
     return(
-      <Post />
-    );
-  })
+      <p>{publicacao.nomeUsuario}
+      <img src={publicacao.fotoUsuario}/>
+      <img src={publicacao.fotoPost}/>
+      </p>
+      
+   )
+  });
   render() {
 
 
     return (
       <div className={'app-container'}>
-        {this.listaDeComponentes}
+        {this.state.listaDeComponentes}
       </div>
     );
   }
