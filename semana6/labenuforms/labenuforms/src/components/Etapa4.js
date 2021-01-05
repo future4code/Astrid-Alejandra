@@ -5,7 +5,10 @@ export default class Etapa1 extends React.Component {
 
     render () {
         return(
-        <h2>O formulário acabou! </h2>
+            <div>
+                <h2>O formulário acabou! </h2>
+                <p>Obrigado pela sua participação! Entraremos em contato.</p>
+            </div>
         )
     }
 }

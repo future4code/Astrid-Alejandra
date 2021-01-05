@@ -5,7 +5,14 @@ export default class Etapa1 extends React.Component {
 
     render () {
         return(
-        <h2>ETAPA 2: Informações do Ensino Superior</h2>
+            <div>
+                <h2>ETAPA 2: Informações do Ensino Superior</h2>
+                <p>1- Qual é o curso?</p>
+                <input />
+                <p>2- Qual é a unidade de Ensino?</p>
+                <input />
+                
+            </div>
         )
     }
 }
