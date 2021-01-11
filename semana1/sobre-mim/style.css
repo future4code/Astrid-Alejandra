@@ -1,0 +1,18 @@
+.header {
+    color: white;
+    background-color: blue;
+}
+.section1 {
+    background-color: orange;
+}
+.section2 {
+    background-color: salmon;
+}
+.button1 {
+    background-color: darkorange;
+    color: white;
+}
+.button2 {
+    background-color: darksalmon;
+    color: white;
+}
