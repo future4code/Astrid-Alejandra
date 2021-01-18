@@ -6,14 +6,13 @@ import axios from "axios";
 export default class PlaylistDetails extends React.Component {
     render () {
         return (
-            <div>
-                <h3>Nome da playlist</h3>
+            <div className="PlaylistDetails">
+                <h3>Playlist-name</h3>
                     <ul>
-                        <li>Nome da música 1</li>
-                        <li>Nome da música 2</li>
-                        <li>Nome da música 3</li>
+                        <li>Nome da música 1 <audio controls src="http://spoti4.future4.com.br/1.mp3" /></li>
+                        <li>Nome da música 2 <audio controls src="http://spoti4.future4.com.br/2.mp3" /></li>
+                        <li>Nome da música 3 <audio controls src="http://spoti4.future4.com.br/3.mp3" /></li>
                     </ul>
-                <hr />
             </div>
         )
     }
