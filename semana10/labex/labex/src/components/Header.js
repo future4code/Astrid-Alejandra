@@ -1,27 +1,13 @@
 import React from "react";
-import {
-  Flex,
-  Tabs,
-  TabList,
-  TabPanels,
-  Tab,
-  TabPanel,
-  Button,
-} from "@chakra-ui/react";
+import { Flex, Link, Button } from "@chakra-ui/react";
 
 function Header() {
   return (
     <Flex>
-      <Tabs>
-        <TabList>
-          <Tab></Tab>
-        </TabList>
-        <TabPanels>
-          <TabPanel>
-            <p></p>
-          </TabPanel>
-        </TabPanels>
-      </Tabs>
+      <Link>Home</Link>
+      <Link>Trips</Link>
+      <Button>Apply for a trip</Button>
+      <Button>Log In</Button>
     </Flex>
   );
 }
