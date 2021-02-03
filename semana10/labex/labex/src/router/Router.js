@@ -6,11 +6,14 @@ import CreateTrip from "../components/CreateTrip";
 import TripsList from "../components/TripsList";
 import Candidates from "../components/Candidates";
 import ErrorPage from "../pages/ErrorPage";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-export default function Router() {
+function Router() {
   return (
     <BrowserRouter>
+      <Header />
       <Switch>
         <Route exact path="/">
           <HomePage />
@@ -34,6 +37,9 @@ export default function Router() {
           <ErrorPage />
         </Route>
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }
+
+export default Router;

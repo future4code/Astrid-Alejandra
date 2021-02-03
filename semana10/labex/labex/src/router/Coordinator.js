@@ -1,7 +1,11 @@
-import React from "react";
+export const goToHomePage = (history) => {
+  history.push("/");
+};
 
-function Coordinator() {
-  return <div></div>;
-}
+export const goToLoginPage = (history) => {
+  history.push("/login");
+};
 
-export default Coordinator;
+export const goToApplicationFormPage = (history) => {
+  history.push("/application-form");
+};

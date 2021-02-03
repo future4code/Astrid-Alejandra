@@ -1,12 +1,12 @@
 import React from "react";
 import Router from "./router/Router";
+import { ChakraProvider } from "@chakra-ui/react";
 
 function App() {
   return (
-    <div>
-      <h1>Hello worldldldldl, esse é o App.js</h1>
+    <ChakraProvider>
       <Router />
-    </div>
+    </ChakraProvider>
   );
 }
 
