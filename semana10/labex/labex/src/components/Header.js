@@ -6,11 +6,14 @@ import {
   goToApplicationFormPage,
   goToHomePage,
   goToTripsPage,
+  removeToken,
 } from "../router/Coordinator";
 
 function Header() {
   const history = useHistory();
-
+  const removeToken = (history, token) => {
+    localStorage.removeItem("token");
+  };
   return (
     <Flex p="10px" background="#455561">
       <Flex p="10px" w="50%" justify="center">
@@ -44,6 +47,10 @@ function Header() {
         </Button>
         <Button mx="8px" variant="solid" onClick={() => goToLoginPage(history)}>
           Log In
+        </Button>
+        {/* Falta integrar com a auth, pra ele renderizar só quando estiver logado  */}
+        <Button mx="8px" variant="solid" onClick={removeToken}>
+          Log Out
         </Button>
       </Flex>
     </Flex>
