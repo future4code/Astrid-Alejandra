@@ -9,3 +9,7 @@ export const goToLoginPage = (history) => {
 export const goToApplicationFormPage = (history) => {
   history.push("/application-form");
 };
+
+export const goToTripsPage = (history) => {
+  history.push("/trips");
+};
