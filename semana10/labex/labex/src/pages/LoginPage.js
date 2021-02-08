@@ -50,14 +50,16 @@ function LoginPage() {
 
   return (
     <Center m="10px">
-      <FormControl w="40%" isRequired errorBorderColor="red">
+      <FormControl as="form" w="40%" isRequired errorBorderColor="red">
         <Input
+          id="email"
           placeholder="E-mail"
           value={email}
           onChange={onChangeEmail}
           type="email"
         />
         <Input
+          id="password"
           placeholder="Password"
           value={password}
           onChange={onChangePassword}
