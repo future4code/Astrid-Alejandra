@@ -6,11 +6,15 @@ import CreateTrip from "../components/CreateTrip";
 import TripsList from "../components/TripsList";
 import Candidates from "../components/Candidates";
 import ErrorPage from "../pages/ErrorPage";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import TripsPage from "../pages/TripsPage";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-export default function Router() {
+function Router() {
   return (
     <BrowserRouter>
+      <Header />
       <Switch>
         <Route exact path="/">
           <HomePage />
@@ -20,6 +24,9 @@ export default function Router() {
         </Route>
         <Route exact path={"/login"}>
           <LoginPage />
+        </Route>
+        <Route exact path={"/trips"}>
+          <TripsPage />
         </Route>
         <Route exact path={"/trips/create"}>
           <CreateTrip />
@@ -34,6 +41,9 @@ export default function Router() {
           <ErrorPage />
         </Route>
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }
+
+export default Router;
