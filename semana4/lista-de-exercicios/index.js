@@ -10,3 +10,85 @@ A função vai separar os números do array números, deixando os números pares
 /*INTERPRETAÇÃO 4
 A funçao vai achar o maior número e o menor número do array números. Faz isso iterando por todos os items do array dois condicionais if, usando o for. No console vai imprimir -10 e na linha seguinte 1590.
 */
+//LÓGICA 1
+let array = [1, 2, 3, 5, 8, 13, 21, 34, 55]
+//WHILE
+let i = 0
+while (i < 10) {
+    console.log(array[i])
+    i++
+}
+//FOR
+for (let i = 0; i < 10; i = i + 2) {
+    console.log(array[i])
+}
+//FOR OF
+for(let item of array) {
+    console.log(item)
+}
+/*LÓGICA 2
+a) false
+b) false
+c) true
+d) true
+e) true
+*/
+//LÓGICA 3
+// O código no deve funcionar, começando porque tem uma variável declarada mas ela não tem nenhum valor atribuido a ela. Para verificar se um número é par, usamos a divisão entre dos com residuo igual a 0, e essa condição não está em nenhum lugar. Eu faria do seguinte jeito:
+function quantidadeNumerosPares(numero) {
+    for(let i = 0; i < numero; i ++) {
+        if (i % 2 === 0) {
+            console.log(i)
+        }
+    }
+}
+quantidadeNumerosPares(13)
+//No console vai imprimir 0 2 4 6 8 10 12
+//LÓGICA 4
+function tipoDeTriangulo(a, b, c) {
+    if (a === b && b === c) {
+        console.log("O triángulo é equilátero")
+    } else if ((a === b && b !== c) || (a === c && c !== b) || (b === c && c !== a)) {
+        console.log("O triángulo é isóssceles")
+    } else if (a !== b && b !== c) {
+        console.log("O triángulo é escaleno")
+    }
+}
+tipoDeTriangulo(1, 2, 3)
+tipoDeTriangulo(2, 2, 2)
+tipoDeTriangulo(1, 2, 2)
+//LÓGICA 5
+function comparaNumeros(num1, num2) {
+ if (num1 > num2) {
+     console.log(`O maior é ${num1}`)
+     console.log("A diferença entre eles é", num1 - num2)
+} else if (num2 > num1) {
+    console.log(`O maior é ${num2}`)
+    console.log("A diferença entre eles é", num2 - num1)
+} else if (num1 === num2) {
+    console.log(`Os números são iguais`)
+}
+
+if (num1 % num2 === 0) {
+    console.log(`${num1} é divisível por ${num2}`)
+} else {
+    console.log(`${num1} não é divísivel por ${num2}`)
+}
+
+
+if (num2 % num1 === 0) {
+    console.log(`${num2} é divisível por ${num1}`)
+} else {
+    console.log(`${num2} não é divisível por ${num1}`)
+}
+
+}
+comparaNumeros(15, 30)
+comparaNumeros(40, 20)
+comparaNumeros(30, 30)
+
+
+
+
+
+vscode://vscode.github-authentication/did-authenticate?windowid=1&code=866f75396bbe04506c41&state=9daf2dae-1126-461c-b98b-e45d58ed943d
