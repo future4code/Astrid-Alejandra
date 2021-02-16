@@ -123,3 +123,52 @@ let hello = () => {
   alert("Hello Labenu!");
 };
 hello();
+/*OBJETOS 1
+OS objetos são variáveis que armazenam um conjunto de valores. O objeto tem um nome, e cada item do conjunto de valores é uma propriedade, que tem nome: valor. Se uma das propriedades é uma função, é chamada de metodo. 
+Um array é uma variável que armazena valores. Como os valores não são propriedades, não tem nome, são acessadas por meio do índice. 
+Quando o objetivo seja armazenar dados valorizando a ordenação, array! O array pode ser mapeado e filtrado também. Quando seja mais interessante ter acesso às propriedades por nome, e seja preciso armazenar valores de vários tipos, objeto!
+*/
+//OBJETOS 2
+function criaRetangulo(lado1, lado2) {
+  const retangulo = {
+    largura: lado1,
+    altura: lado2,
+    perimetro: 2 * (lado1 + lado2),
+    area: lado1 * lado2,
+  };
+
+  console.log(retangulo);
+}
+criaRetangulo(2, 3);
+//OBJETOS 3
+function criaFilmeFavorito() {
+  const novoFilme = {
+    titulo: "Jeux d'enfants",
+    ano: 2005,
+    diretor: "Pepito de los Palotes",
+    ator1: "Guillaume Canet",
+    atriz1: "Marion Cotillard",
+  };
+  console.log(
+    `Venha assistir o ${novoFilme.titulo}, de ${novoFilme.ano}, dirigido por ${novoFilme.diretor} e estrelado por ${novoFilme.ator1} e ${novoFilme.atriz1}`
+  );
+}
+criaFilmeFavorito();
+//OBJETOS 4
+const pessoa = {
+  nome: "Kai",
+  idade: 2,
+  email: "kaikuse@gmail.com",
+  endereco: "Paracatú",
+};
+function pessoaAnonima() {
+  const pessoaAnonima = {
+    nome: "anónimo",
+    idade: pessoa.idade,
+    email: pessoa.email,
+    endereco: pessoa.endereco,
+  };
+  return pessoaAnonima;
+}
+console.log(pessoa);
+console.log(pessoaAnonima());
