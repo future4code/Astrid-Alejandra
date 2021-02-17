@@ -6,21 +6,32 @@ const criarTarefa = () => {
     alert("Por favor, digite o nome da tarefa!");
   } else {
     document.getElementById("tarefa").value = "";
+    console.log();
     document.getElementById(
       diaSelecionado
-    ).innerHTML += `<p onclick="riscarTarefa()" id="tarefa-criada"> * ${nomeTarefa} </p>`;
+    ).innerHTML += `<p onclick="riscarTarefa()" id="tarefaCriada"> - ${nomeTarefa} </p>`;
   }
 };
-let clickado = true;
+
 const riscarTarefa = () => {
-  if (clickado) {
-    document.getElementById("tarefa-criada").style.textDecoration =
-      "line-through";
-    document.getElementById("tarefa-criada").style.color = "red";
+  let x = document.getElementById("tarefaCriada");
+  let clickado = true;
+  const riscarTarefaFalse = () => {
+    x.style.textDecoration = "none";
+    x.style.color = "black";
+    console.log("entrou no false");
+  };
+
+  const riscarTarefaTrue = () => {
+    x.style.textDecoration = "line-through";
+    x.style.color = "red";
     clickado = false;
+    console.log("entro no true");
+  };
+
+  if (clickado) {
+    riscarTarefaTrue();
   } else {
-    document.getElementById("tarefa-criada").style.textDecoration = "none";
-    document.getElementById("tarefa-criada").style.color = "black";
-    clickado = true;
+    riscarTarefaFalse();
   }
 };
