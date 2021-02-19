@@ -1,7 +1,6 @@
 import React from "react";
-import CreateMessage from "./components/CreateMessage";
-import MessagesList from "./components/MessagesList";
 import styled from "styled-components";
+import CreateMessage from "./components/CreateMessage";
 
 const MainContainer = styled.div`
   background-color: black;
@@ -15,7 +14,6 @@ const MainContainer = styled.div`
 function App() {
   return (
     <MainContainer>
-      <MessagesList />
       <CreateMessage />
     </MainContainer>
   );
