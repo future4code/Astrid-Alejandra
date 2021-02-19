@@ -17,7 +17,6 @@ const Message = styled.p`
 
 class MessagesList extends React.Component {
   render() {
-    console.log(this.props.mensagens);
     return (
       <MessagesContainer>
         {this.props.mensagens &&

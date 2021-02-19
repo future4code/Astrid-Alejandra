@@ -45,11 +45,15 @@ class CreateMessage extends React.Component {
     const newArray = [newMessage, ...this.state.mensagens];
     this.setState({ mensagens: newArray });
     this.setState({ message: "" });
-    console.log(newArray);
+  };
+
+  enterSendMessage = (event) => {
+    if (event.key === "Enter") {
+      this.onClickSendMessage();
+    }
   };
 
   render() {
-    console.log(this.state.mensagens);
     return (
       <div>
         <MessagesList
@@ -57,18 +61,22 @@ class CreateMessage extends React.Component {
           user={this.state.user}
           message={this.state.message}
         />
-        <Container>
+        <Container onKeyPress={this.enterSendMessage}>
           <UserInput
             placeholder="Usuário"
             onChange={this.onChangeUser}
             value={this.state.user}
+            required
           />
           <MessageInput
             placeholder="Mensagem"
             onChange={this.onChangeMessage}
             value={this.state.message}
+            required
           />
-          <SendMessage onClick={this.onClickSendMessage}>Enviar</SendMessage>
+          <SendMessage onClick={this.onClickSendMessage} type="submit">
+            Enviar
+          </SendMessage>
         </Container>
       </div>
     );
