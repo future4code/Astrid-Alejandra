@@ -14,6 +14,12 @@ const Message = styled.p`
   margin: 3px;
   padding: 10px 15px;
 `;
+const MyMessage = styled.p`
+  background-color: turquoise;
+  margin: 3px;
+  padding: 10px 15px;
+  text-align: right;
+`;
 
 class MessagesList extends React.Component {
   render() {
@@ -21,15 +27,27 @@ class MessagesList extends React.Component {
       <MessagesContainer>
         {this.props.messages &&
           this.props.messages.map((message, index) => {
-            return (
-              <Message
-                key={index}
-                onDoubleClick={() => this.props.onDoubleClick(index)}
-              >
-                <strong>{message.userValue}: </strong>
-                {message.messageValue}
-              </Message>
-            );
+            if (message.userValue.toLowerCase() === "eu") {
+              return (
+                <MyMessage
+                  key={index}
+                  onDoubleClick={() => this.props.onDoubleClick(index)}
+                >
+                  <strong>{message.userValue}: </strong>
+                  {message.messageValue}
+                </MyMessage>
+              );
+            } else {
+              return (
+                <Message
+                  key={index}
+                  onDoubleClick={() => this.props.onDoubleClick(index)}
+                >
+                  <strong>{message.userValue}: </strong>
+                  {message.messageValue}
+                </Message>
+              );
+            }
           })}
       </MessagesContainer>
     );
