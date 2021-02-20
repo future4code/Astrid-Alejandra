@@ -19,12 +19,15 @@ class MessagesList extends React.Component {
   render() {
     return (
       <MessagesContainer>
-        {this.props.mensagens &&
-          this.props.mensagens.map((mensagem, index) => {
+        {this.props.messages &&
+          this.props.messages.map((message, index) => {
             return (
-              <Message key={index}>
-                <strong>{mensagem.userValue}: </strong>
-                {mensagem.messageValue}
+              <Message
+                key={index}
+                onDoubleClick={() => this.props.onDoubleClick(index)}
+              >
+                <strong>{message.userValue}: </strong>
+                {message.messageValue}
               </Message>
             );
           })}

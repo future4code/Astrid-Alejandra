@@ -27,7 +27,7 @@ class CreateMessage extends React.Component {
   state = {
     user: "",
     message: "",
-    mensagens: [],
+    messages: [],
   };
 
   onChangeUser = (event) => {
@@ -42,8 +42,8 @@ class CreateMessage extends React.Component {
       userValue: this.state.user,
       messageValue: this.state.message,
     };
-    const newArray = [newMessage, ...this.state.mensagens];
-    this.setState({ mensagens: newArray });
+    const newArray = [newMessage, ...this.state.messages];
+    this.setState({ messages: newArray });
     this.setState({ message: "" });
   };
 
@@ -53,13 +53,22 @@ class CreateMessage extends React.Component {
     }
   };
 
+  deleteMessage = (index) => {
+    if (window.confirm("Tem certeza que quer remover essa mensagem?")) {
+      const deletedMessage = this.state.messages;
+      deletedMessage.splice(index, 1);
+      this.setState({ messages: deletedMessage });
+    }
+  };
+
   render() {
     return (
       <div>
         <MessagesList
-          mensagens={this.state.mensagens}
+          messages={this.state.messages}
           user={this.state.user}
           message={this.state.message}
+          onDoubleClick={this.deleteMessage}
         />
         <Container onKeyPress={this.enterSendMessage}>
           <UserInput
