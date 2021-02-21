@@ -3,7 +3,7 @@ import styled from "styled-components";
 import CreateMessage from "./components/CreateMessage";
 
 const MainContainer = styled.div`
-  background-color: black;
+  background-color: #d8b4a0;
   height: 100vh;
   width: 100vw;
   display: flex;

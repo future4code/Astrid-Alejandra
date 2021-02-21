@@ -2,23 +2,32 @@ import React from "react";
 import styled from "styled-components";
 
 const MessagesContainer = styled.div`
-  background-color: darkblue;
+  background-color: lavender;
   width: 45vw;
   height: 90vh;
   margin-top: 10px;
   display: flex;
   flex-direction: column-reverse;
+  border-radius: 40px 0;
+  border: 1px solid lightgray;
 `;
 const Message = styled.p`
-  background-color: olivedrab;
+  background-color: #fa7921;
   margin: 3px;
-  padding: 10px 15px;
+  width: 50%;
+  padding: 12px 15px;
+  border-radius: 0 30px;
+  border: 1px solid lightgray;
 `;
 const MyMessage = styled.p`
-  background-color: turquoise;
+  align-self: flex-end;
+  background-color: #b9a44c;
   margin: 3px;
-  padding: 10px 15px;
+  padding: 12px 15px;
   text-align: right;
+  width: 50%;
+  border-radius: 30px 0;
+  border: 1px solid lightgray;
 `;
 
 class MessagesList extends React.Component {
