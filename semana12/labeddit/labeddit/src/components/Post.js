@@ -2,29 +2,45 @@ import React from "react";
 import { Box, Text, Heading } from "@chakra-ui/react";
 import Votes from "./Votes";
 import CommentCount from "./CommentCount";
-import { goToPostDetailsPage } from "../routes/Coordinator";
-import { useHistory } from "react-router-dom";
 
-const Post = (props) => {
-  const history = useHistory();
+const Post = ({
+  username,
+  title,
+  text,
+  votesCount,
+  commentsCount,
+  userVoteDirection,
+  onClick,
+}) => {
   return (
-    <Box align="center">
+    <Box align="center" m="3px">
       <Box
         w="30vw"
         display="flex"
         border="1px solid black"
+        borderRadius="4px 4px 0 0"
         p="2em"
         flexDirection="column"
-        onClick={() => goToPostDetailsPage(history)}
+        onClick={onClick}
+        backgroundColor="#f5dbbd"
       >
         <Heading as="h3" size="md" textAlign="left">
-          Username
+          {username}
         </Heading>
-        <Text w="100%" textAlign="justify"></Text>
+        <Text w="100%" textAlign="justify">
+          <strong>{title} </strong>
+          {text}
+        </Text>
       </Box>
-      <Box w="30vw" display="flex" border="1px solid black" p="0.5em">
-        <Votes justify="flex-start" />
-        <CommentCount justify="flex-end" />
+      <Box
+        w="30vw"
+        display="flex"
+        border="1px solid black"
+        borderRadius="0 0 4px 4px"
+        p="0.5em 0.8em"
+      >
+        <Votes votesCount={votesCount} />
+        <CommentCount commentsCount={commentsCount} />
       </Box>
     </Box>
   );

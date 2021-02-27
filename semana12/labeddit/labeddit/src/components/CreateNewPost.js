@@ -15,9 +15,10 @@ const CreateNewPost = () => {
     console.log(form);
     createPostRequest(form, clear);
   };
+
   return (
     <Box
-      w="30%"
+      w="30vw"
       border="1px solid black"
       p="1em"
       display="flex"

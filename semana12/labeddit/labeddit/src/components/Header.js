@@ -3,12 +3,11 @@ import { Flex, Image, Button, ButtonGroup } from "@chakra-ui/react";
 import Logo from "../images/Logo.png";
 import { useHistory } from "react-router-dom";
 import { goToLoginPage } from "../routes/Coordinator";
-import { token } from "../constants/requestsData";
 
 const Header = ({ logged, setLogged }) => {
   const history = useHistory();
   const onClickLog = () => {
-    if (token) {
+    if (logged === "Log Out") {
       localStorage.removeItem("token");
       setLogged("Log In");
       goToLoginPage(history);

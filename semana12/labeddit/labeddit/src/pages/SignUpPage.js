@@ -23,8 +23,8 @@ const SignUpPage = ({ logged, setLogged }) => {
   };
 
   const [form, onChange, clear] = useForm({
-    username: "",
     email: "",
+    username: "",
     password: "",
   });
   const onSubmitForm = (event) => {

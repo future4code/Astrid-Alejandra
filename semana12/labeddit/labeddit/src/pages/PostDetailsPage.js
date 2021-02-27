@@ -1,26 +1,22 @@
 import React from "react";
 import { Center, Button } from "@chakra-ui/react";
 import CreateNewComment from "../components/CreateNewComment";
-import Comment from "../components/Comment";
 import Post from "../components/Post";
 import { goToFeedPage } from "../routes/Coordinator";
 import { useHistory, useParams } from "react-router-dom";
 import useProtectedPage from "../hooks/useProtectedPage";
 import useRequestData from "../hooks/useRequestData";
 import { BASE_URL } from "../constants/requestsData";
+import Comment from "../components/Comment";
 
 const PostDetailsPage = () => {
   useProtectedPage();
   const params = useParams();
-  console.log(params.postId);
   const postDetailsGet = useRequestData(
-    {},
+    [],
     `${BASE_URL}/posts/${params.postId}`
   );
-  console.log(
-    postDetailsGet && postDetailsGet.post && postDetailsGet.post.title
-  );
-
+  const postData = postDetailsGet.post;
   const history = useHistory();
   return (
     <Center flexDirection="column">
@@ -33,10 +29,32 @@ const PostDetailsPage = () => {
       >
         Go back to feed
       </Button>
-
-      <Post />
+      {postData && (
+        <Post
+          key={postData.id}
+          username={postData.username}
+          title={postData.title}
+          text={postData.text}
+          votesCount={postData.votesCount}
+          commentsCount={postData.commentsCount}
+          userVoteDirection={postData.userVoteDirection}
+        />
+      )}
       <CreateNewComment />
-      <Comment />
+      {/* Map para os comments */}
+      {postDetailsGet &&
+        postDetailsGet.post &&
+        postDetailsGet.post.comments.map((comment, index) => {
+          return (
+            <Comment
+              key={comment.id}
+              username={comment.username}
+              text={comment.text}
+              votesCount={comment.votesCount}
+              userVoteDirection={comment.userVoteDirection}
+            />
+          );
+        })}
     </Center>
   );
 };

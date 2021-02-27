@@ -13,8 +13,7 @@ const useRequestData = (initialData, url) => {
         console.log(response.data);
       })
       .catch((error) => {
-        console.log(error.message);
-        alert("Something happened!", error.message);
+        console.log("entrou no err", error.message);
       });
   }, [url]);
   return data;

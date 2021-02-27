@@ -6,9 +6,8 @@ export const createPostRequest = (body, clear) => {
     axios
       .post(`${BASE_URL}/posts`, body, headers)
       .then((response) => {
-        console.log("entrou no then", response.data);
+        console.log("entrou no then do createpost", response.data);
         clear();
-        //funcao para atualizar os posts
       })
       .catch((error) => {
         console.log(error.message);
