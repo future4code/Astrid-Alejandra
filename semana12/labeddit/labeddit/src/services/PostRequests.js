@@ -1,27 +1,45 @@
 import axios from "axios";
 import { BASE_URL, token, headers } from "../constants/requestsData";
 
-export const createPostRequest = (body, clear) => {
+export const createPostRequest = (body, clear, toast) => {
   if (token) {
     axios
       .post(`${BASE_URL}/posts`, body, headers)
       .then((response) => {
-        console.log("entrou no then do createpost", response.data);
+        toast({
+          position: "top",
+          title: "Success!",
+          description: "Your post was created!",
+          status: "success",
+          duration: 1300,
+          isClosable: true,
+        });
         clear();
       })
       .catch((error) => {
-        console.log(error.message);
+        toast({
+          position: "top",
+          title: "Ooops!",
+          description: error.message,
+          status: "error",
+          duration: 1300,
+          isClosable: true,
+        });
       });
   }
 };
 
-export const votePostRequest = (body) => {
+export const votePostRequest = (body, postId) => {
   axios
-    .put(`${BASE_URL}/posts/:postId/vote`, body, headers)
+    .put(`${BASE_URL}/posts/${postId}/vote`, body, headers)
     .then((response) => {
-      console.log("entrou no then", response.data);
+      alert(
+        "THEN Alert aqui só pra mostrar que o request está funcionando, porque não está atualizando automáticamente ainda"
+      );
     })
     .catch((error) => {
-      console.log(error.message);
+      alert(
+        "ERROR Alert aqui só pra mostrar que o request está funcionando, porque não está atualizando automáticamente ainda"
+      );
     });
 };

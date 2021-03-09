@@ -1,8 +1,14 @@
 import React from "react";
 import { Box, Text, Heading } from "@chakra-ui/react";
-import Votes from "../components/Votes";
+import VotesComment from "./VotesComment";
 
-const Comment = ({ username, text, votesCount, userVoteDirection }) => {
+const Comment = ({
+  commentId,
+  username,
+  text,
+  votesCount,
+  userVoteDirection,
+}) => {
   return (
     <Box align="center" m="3px">
       <Box
@@ -25,7 +31,12 @@ const Comment = ({ username, text, votesCount, userVoteDirection }) => {
         p="0.5em"
         borderRadius="0 0 4px 4px"
       >
-        <Votes justify="flex-start" votesCount={votesCount} />
+        <VotesComment
+          justify="flex-start"
+          votesCount={votesCount}
+          commentId={commentId}
+          userVoteDirection={userVoteDirection}
+        />
       </Box>
     </Box>
   );

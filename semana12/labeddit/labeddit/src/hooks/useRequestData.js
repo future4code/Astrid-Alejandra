@@ -10,7 +10,6 @@ const useRequestData = (initialData, url) => {
       .get(url, headers)
       .then((response) => {
         setData(response.data);
-        console.log(response.data);
       })
       .catch((error) => {
         console.log("entrou no err", error.message);

@@ -1,9 +1,10 @@
 import React from "react";
 import { Box, Text, Heading } from "@chakra-ui/react";
-import Votes from "./Votes";
-import CommentCount from "./CommentCount";
+import CommentCount from "../comments/CommentCount";
+import VotesPost from "./VotesPost";
 
 const Post = ({
+  postId,
   username,
   title,
   text,
@@ -39,7 +40,12 @@ const Post = ({
         borderRadius="0 0 4px 4px"
         p="0.5em 0.8em"
       >
-        <Votes votesCount={votesCount} />
+        <VotesPost
+          justify="flex-start"
+          postId={postId}
+          votesCount={votesCount}
+          userVoteDirection={userVoteDirection}
+        />
         <CommentCount commentsCount={commentsCount} />
       </Box>
     </Box>

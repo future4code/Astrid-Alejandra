@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Center } from "@chakra-ui/react";
-import CreateNewPost from "../components/CreateNewPost";
+import CreateNewPost from "../components/posts/CreateNewPost";
 import useProtectedPage from "../hooks/useProtectedPage";
 import { goToPostDetailsPage } from "../routes/Coordinator";
 import { useHistory } from "react-router-dom";
-import Post from "../components/Post";
+import Post from "../components/posts/Post";
 import { BASE_URL } from "../constants/requestsData";
 import useRequestData from "../hooks/useRequestData";
 
@@ -15,8 +15,8 @@ const FeedPage = () => {
   const postsResponse = getPostsRequest.posts;
   const history = useHistory();
 
-  const onClickPost = (id) => {
-    goToPostDetailsPage(history, id);
+  const onClickPost = (postId) => {
+    goToPostDetailsPage(history, postId);
   };
 
   return (
@@ -27,6 +27,7 @@ const FeedPage = () => {
           return (
             <Post
               key={post.id}
+              postId={post.id}
               username={post.username}
               title={post.title}
               text={post.text}

@@ -1,8 +1,8 @@
 import React from "react";
-import { Box, Textarea, Button } from "@chakra-ui/react";
-import useForm from "../hooks/useForm";
-import Input from "./CustomInput";
-import { createPostRequest } from "../services/PostRequests";
+import { Box, Textarea, Button, useToast } from "@chakra-ui/react";
+import useForm from "../../hooks/useForm";
+import Input from "../CustomInput";
+import { createPostRequest } from "../../services/PostRequests";
 
 const CreateNewPost = () => {
   const [form, onChange, clear] = useForm({
@@ -10,10 +10,11 @@ const CreateNewPost = () => {
     text: "",
   });
 
+  const toast = useToast();
   const onSubmitForm = (event) => {
     event.preventDefault();
     console.log(form);
-    createPostRequest(form, clear);
+    createPostRequest(form, clear, toast);
   };
 
   return (
