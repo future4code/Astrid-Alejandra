@@ -10,7 +10,7 @@ import {
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
-const MatchesPage = () => {
+const MatchesPage = ({ clearMatches }) => {
   const [matches, setMatches] = useState([]);
   const getMatches = () => {
     axios
@@ -19,22 +19,12 @@ const MatchesPage = () => {
       )
       .then((response) => {
         setMatches(response.data.matches);
-        console.log(matches);
       })
       .catch((error) => {
         console.log(error.message);
       });
   };
-  const clearMatches = () => {
-    axios
-      .put(
-        "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/astrid-epps/clear"
-      )
-      .then((response) => {})
-      .catch((error) => {
-        console.log(error.message);
-      });
-  };
+
   useEffect(() => {
     getMatches();
   }, [matches]);
@@ -50,7 +40,7 @@ const MatchesPage = () => {
       >
         {matches.map((match) => {
           return (
-            <GridItem bg="#F6F0FA" borderRadius="32px 0">
+            <GridItem bg="#F6F0FA" borderRadius="32px 0" key={match.id}>
               <Flex h="70%" justify="center" p="0.3em">
                 <Image src={match.photo} borderRadius="16px 0" />
               </Flex>

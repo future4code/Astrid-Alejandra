@@ -1,28 +1,9 @@
-import { Flex, IconButton, Image, Text } from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
+import { Button, Flex, IconButton, Image, Text } from "@chakra-ui/react";
+import React from "react";
 import { GoHeart, GoX } from "react-icons/go";
 import axios from "axios";
 
-const ProfilesPage = () => {
-  const [profile, setProfile] = useState({});
-  const getProfileToChoose = () => {
-    axios
-      .get(
-        "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/astrid-epps/person"
-      )
-      .then((response) => {
-        console.log(response.data);
-        setProfile(response.data.profile);
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
-  };
-
-  useEffect(() => {
-    getProfileToChoose();
-  }, []);
-
+const ProfilesPage = ({ profile, getProfileToChoose, clearMatches }) => {
   const onClickMatch = () => {
     const body = {
       id: profile.id,
@@ -65,16 +46,19 @@ const ProfilesPage = () => {
         <Flex w="100%" h="100%" margin="auto" direction="column">
           <Flex direction="column" h="90%" justify="space-between" p="0.5em">
             <Image
-              h="80%"
+              h="75%"
               objectFit="cover"
               src={profile.photo}
               borderRadius="32px 0"
+              marginBottom="0.3em"
             />
             <Flex
               direction="column"
               p="0.5em 1em"
               bg="#F6F0FA"
               borderRadius="0 32px"
+              justify="center"
+              grow="1"
             >
               <Text>
                 <strong>{profile.name}</strong>, {profile.age}.
@@ -112,6 +96,11 @@ const ProfilesPage = () => {
           <Text textAlign="center">
             Se você quiser ver os perfis de novo, é só limpar os matches!
           </Text>
+          <Flex h="10%" justify="center" paddingTop="0.5em">
+            <Button variant="outline" onClick={clearMatches}>
+              Limpar matches
+            </Button>
+          </Flex>
         </Flex>
       )}
     </>

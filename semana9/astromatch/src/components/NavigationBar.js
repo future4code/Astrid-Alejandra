@@ -5,12 +5,58 @@ import {
   TabPanel,
   TabPanels,
   Tabs,
+  useToast,
 } from "@chakra-ui/react";
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import MatchesPage from "../pages/MatchesPage";
 import ProfilesPage from "../pages/ProfilesPage";
 
 const NavigationBar = () => {
+  const toast = useToast();
+  const [profile, setProfile] = useState({});
+  const getProfileToChoose = () => {
+    axios
+      .get(
+        "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/astrid-epps/person"
+      )
+      .then((response) => {
+        setProfile(response.data.profile);
+      })
+      .catch((error) => {
+        toast({
+          title: "Ooops, houve um problema!",
+          description: error.message,
+          status: "error",
+          duration: 2500,
+          isClosable: true,
+        });
+      });
+  };
+
+  const clearMatches = () => {
+    axios
+      .put(
+        "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/astrid-epps/clear"
+      )
+      .then((response) => {
+        getProfileToChoose();
+      })
+      .catch((error) => {
+        toast({
+          title: "Ooops, houve um problema!",
+          description: error.message,
+          status: "error",
+          duration: 2500,
+          isClosable: true,
+        });
+      });
+  };
+
+  useEffect(() => {
+    getProfileToChoose();
+  }, []);
+
   return (
     <Center h="90%">
       <Tabs w="80%" h="100%" isFitted variant="unstyled">
@@ -30,10 +76,14 @@ const NavigationBar = () => {
         </TabList>
         <TabPanels grow="1" h="100%">
           <TabPanel h="100%" p="0">
-            <ProfilesPage />
+            <ProfilesPage
+              profile={profile}
+              getProfileToChoose={getProfileToChoose}
+              clearMatches={clearMatches}
+            />
           </TabPanel>
           <TabPanel h="100%" p="0">
-            <MatchesPage />
+            <MatchesPage clearMatches={clearMatches} />
           </TabPanel>
         </TabPanels>
       </Tabs>
