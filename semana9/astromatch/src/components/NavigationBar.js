@@ -12,8 +12,8 @@ import ProfilesPage from "../pages/ProfilesPage";
 
 const NavigationBar = () => {
   return (
-    <Center>
-      <Tabs w="80%" isFitted variant="unstyled">
+    <Center h="90%">
+      <Tabs w="80%" h="100%" isFitted variant="unstyled">
         <TabList mb="1em">
           <Tab
             _hover={{ bg: "#00F5AB", border: "none", borderRadius: "16px 0" }}
@@ -28,8 +28,8 @@ const NavigationBar = () => {
             Matches
           </Tab>
         </TabList>
-        <TabPanels>
-          <TabPanel>
+        <TabPanels grow="1" h="100%">
+          <TabPanel h="100%" p="0">
             <ProfilesPage />
           </TabPanel>
           <TabPanel>
