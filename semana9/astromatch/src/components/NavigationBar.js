@@ -19,7 +19,7 @@ const NavigationBar = () => {
             _hover={{ bg: "#00F5AB", border: "none", borderRadius: "16px 0" }}
             _focus={{ border: "none" }}
           >
-            Profiles
+            Perfis
           </Tab>
           <Tab
             _hover={{ bg: "#00F5AB", border: "none", borderRadius: "16px 0" }}
@@ -32,7 +32,7 @@ const NavigationBar = () => {
           <TabPanel h="100%" p="0">
             <ProfilesPage />
           </TabPanel>
-          <TabPanel>
+          <TabPanel h="100%" p="0">
             <MatchesPage />
           </TabPanel>
         </TabPanels>
