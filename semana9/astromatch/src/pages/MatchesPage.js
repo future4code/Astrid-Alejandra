@@ -54,7 +54,9 @@ const MatchesPage = ({ clearMatches }) => {
         })}
       </Grid>
       <Flex h="10%" justify="center" paddingTop="0.5em">
-        <Button onClick={clearMatches}>Limpar matches</Button>
+        <Button bg="#F6F0FA" onClick={clearMatches}>
+          Limpar matches
+        </Button>
       </Flex>
     </Box>
   );
