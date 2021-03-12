@@ -1,9 +1,17 @@
-import { Button, Flex, IconButton, Image, Text } from "@chakra-ui/react";
+import {
+  Button,
+  Flex,
+  IconButton,
+  Image,
+  Text,
+  useToast,
+} from "@chakra-ui/react";
 import React from "react";
 import { GoHeart, GoX } from "react-icons/go";
 import axios from "axios";
 
 const ProfilesPage = ({ profile, getProfileToChoose, clearMatches }) => {
+  const toast = useToast();
   const onClickMatch = () => {
     const body = {
       id: profile.id,
@@ -18,7 +26,13 @@ const ProfilesPage = ({ profile, getProfileToChoose, clearMatches }) => {
         getProfileToChoose();
       })
       .catch((error) => {
-        console.log(error.message);
+        toast({
+          title: "Ooops, houve um problema!",
+          description: error.message,
+          status: "error",
+          duration: 2500,
+          isClosable: true,
+        });
       });
   };
 
@@ -36,7 +50,13 @@ const ProfilesPage = ({ profile, getProfileToChoose, clearMatches }) => {
         getProfileToChoose();
       })
       .catch((error) => {
-        console.log(error.message);
+        toast({
+          title: "Ooops, houve um problema!",
+          description: error.message,
+          status: "error",
+          duration: 2500,
+          isClosable: true,
+        });
       });
   };
 

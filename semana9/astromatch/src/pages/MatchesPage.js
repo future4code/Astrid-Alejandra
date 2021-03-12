@@ -6,12 +6,13 @@ import {
   GridItem,
   Image,
   Text,
+  useToast,
 } from "@chakra-ui/react";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
-const MatchesPage = ({ clearMatches }) => {
-  const [matches, setMatches] = useState([]);
+const MatchesPage = ({ clearMatches, matches, setMatches }) => {
+  const toast = useToast();
   const getMatches = () => {
     axios
       .get(
@@ -21,7 +22,13 @@ const MatchesPage = ({ clearMatches }) => {
         setMatches(response.data.matches);
       })
       .catch((error) => {
-        console.log(error.message);
+        toast({
+          title: "Ooops, houve um problema!",
+          description: error.message,
+          status: "error",
+          duration: 2500,
+          isClosable: true,
+        });
       });
   };
 
@@ -54,7 +61,7 @@ const MatchesPage = ({ clearMatches }) => {
         })}
       </Grid>
       <Flex h="10%" justify="center" paddingTop="0.5em">
-        <Button bg="#F6F0FA" onClick={clearMatches}>
+        <Button bg="#F6F0FA" onClick={() => clearMatches(setMatches)}>
           Limpar matches
         </Button>
       </Flex>

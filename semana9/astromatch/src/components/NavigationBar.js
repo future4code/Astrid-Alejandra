@@ -13,6 +13,7 @@ import MatchesPage from "../pages/MatchesPage";
 import ProfilesPage from "../pages/ProfilesPage";
 
 const NavigationBar = () => {
+  const [matches, setMatches] = useState([]);
   const toast = useToast();
   const [profile, setProfile] = useState({});
   const getProfileToChoose = () => {
@@ -41,6 +42,7 @@ const NavigationBar = () => {
       )
       .then((response) => {
         getProfileToChoose();
+        setMatches([]);
       })
       .catch((error) => {
         toast({
@@ -83,7 +85,11 @@ const NavigationBar = () => {
             />
           </TabPanel>
           <TabPanel h="100%" p="0">
-            <MatchesPage clearMatches={clearMatches} />
+            <MatchesPage
+              clearMatches={clearMatches}
+              matches={matches}
+              setMatches={setMatches}
+            />
           </TabPanel>
         </TabPanels>
       </Tabs>
