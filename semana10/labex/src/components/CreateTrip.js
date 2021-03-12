@@ -1,7 +1,5 @@
 import React from "react";
-import axios from "axios";
 import { Input, FormControl, Center, Button } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
 import useProtectedPage from "../hooks/useProtectedPage";
 import useInput from "../hooks/useInput";
 
@@ -12,12 +10,6 @@ function CreateTrip() {
   const [description, onChangeDescription] = useInput();
   const [durationInDays, onChangeDurationInDays] = useInput();
   useProtectedPage();
-
-  // const onSubmit = () => {
-  //   createTripFunction();
-  //   console.log("clickclickclick");
-  //Requisição
-  //AAAAAAAAAAAAAAAAAAAAAAAAAAAA
 
   return (
     <Center m="10px">

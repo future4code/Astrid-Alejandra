@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import { Center, Flex, Heading, Text } from "@chakra-ui/react";
 
 function TripsList() {

@@ -6,7 +6,6 @@ import {
   goToApplicationFormPage,
   goToHomePage,
   goToTripsPage,
-  removeToken,
 } from "../router/Coordinator";
 
 function Header() {
