@@ -8,7 +8,7 @@ import {
   goToTripsPage,
 } from "../router/Coordinator";
 
-function Header() {
+const Header = () => {
   const history = useHistory();
   const removeToken = (history, token) => {
     localStorage.removeItem("token");
@@ -49,6 +49,6 @@ function Header() {
       </Flex>
     </Flex>
   );
-}
+};
 
 export default Header;

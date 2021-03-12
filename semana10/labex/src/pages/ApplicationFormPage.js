@@ -1,24 +1,48 @@
 import React from "react";
-import { FormControl, Center, Input, Select, Button } from "@chakra-ui/react";
+import {
+  FormControl,
+  Center,
+  Input,
+  Select,
+  Button,
+  Flex,
+} from "@chakra-ui/react";
 
-function ApplicationFormPage() {
+const ApplicationFormPage = () => {
   return (
-    <Center m="10px">
-      <FormControl w="40%" id="name" isRequired errorBorderColor="red">
-        <Input placeholder="Full Name" type="text" />
-        <Input placeholder="Age" type="number" />
-        <Input placeholder="Occupation" type="text" />
-        <Input placeholder="Country" type="text" />
-        <Select placeholder="Trip of interest">
-          {/* aqui tem que passar por ?props? os valores trip.trip.name? cada um vai renderizar como uma option do select. onde tem que fazer isso? */}
-          <option>United Arab Emirates</option>
-          <option>Nigeria</option>
-        </Select>
-        <Input placeholder="Application Message" type="text" />
-        <Button>Apply!</Button>
-      </FormControl>
+    <Center h="90vh">
+      <Flex bg="lightBlue" justify="center" align="center" w="100vw" p="2em">
+        <FormControl
+          w="40%"
+          id="name"
+          isRequired
+          errorBorderColor="red"
+          p="1em"
+        >
+          <Flex w="100%">
+            <Input
+              w="70%"
+              variant="filled"
+              placeholder="Full Name"
+              type="text"
+            />
+            <Input w="30%" variant="filled" placeholder="Age" type="number" />
+          </Flex>
+          <Input variant="filled" placeholder="Occupation" type="text" />
+          <Input variant="filled" placeholder="Country" type="text" />
+          <Select variant="filled" placeholder="Trip of interest">
+            {/* through a map, put the trips in here, should be easy-peasy! */}
+          </Select>
+          <Input
+            variant="filled"
+            placeholder="Application Message"
+            type="text"
+          />
+          <Button w="100%">Apply!</Button>
+        </FormControl>
+      </Flex>
     </Center>
   );
-}
+};
 
 export default ApplicationFormPage;

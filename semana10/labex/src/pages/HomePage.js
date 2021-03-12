@@ -1,22 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { Flex, Heading, Text } from "@chakra-ui/layout";
 import orion from "../images/orion.jpg";
-import space from "../images/space.jpeg";
-import { Image } from "@chakra-ui/image";
 import { Button } from "@chakra-ui/button";
 import { getTrips } from "../services/tripRequests";
 import { goToApplicationFormPage } from "../router/Coordinator";
 import { useHistory } from "react-router";
 
-function HomePage() {
+const HomePage = () => {
   const [trips, setTrips] = useState([]);
   const history = useHistory();
 
   useEffect(() => {
     getTrips(setTrips, trips);
-    console.log(trips && trips);
   }, []);
-  console.log(trips);
+
   return (
     <Flex w="100%" h="91vh" direction="column">
       <Flex
@@ -88,6 +85,6 @@ function HomePage() {
       </Flex>
     </Flex>
   );
-}
+};
 
 export default HomePage;

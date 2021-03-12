@@ -8,7 +8,9 @@ const labeXtheme = extendTheme({
         padding: 0,
         margin: 0,
         fontFamily: "Raleway, sans-serif",
-        bgColor: "violet",
+        h: "100%",
+        bgGradient: "linear(to-b, black, violet, midnightBlue)",
+        bgSize: "100% 100%",
         boxSizing: "borderBox",
       },
       h1: {
@@ -25,11 +27,14 @@ const labeXtheme = extendTheme({
     lightGray: "#F0F0C9",
 
     //option2
+    black: "#000000",
     violet: "#0D0628",
+    midnightBlue: "#22116A",
     brightBlue: "#00A6FB",
     mediumBlue: "#0582CA",
     grayBlue: "#006494",
-    lightBlue: "#D3F6DB",
+    lightBlue: "#E0ECF5",
+    lightBlue2: "#C1D9EB",
   },
   components: {
     Button,
