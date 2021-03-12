@@ -1,4 +1,5 @@
 import { extendTheme } from "@chakra-ui/react";
+import Button from "./Button";
 
 const labeXtheme = extendTheme({
   styles: {
@@ -8,6 +9,10 @@ const labeXtheme = extendTheme({
         margin: 0,
         fontFamily: "Raleway, sans-serif",
         bgColor: "violet",
+        boxSizing: "borderBox",
+      },
+      h1: {
+        color: "lightBlue",
       },
     },
   },
@@ -25,6 +30,9 @@ const labeXtheme = extendTheme({
     mediumBlue: "#0582CA",
     grayBlue: "#006494",
     lightBlue: "#D3F6DB",
+  },
+  components: {
+    Button,
   },
 });
 

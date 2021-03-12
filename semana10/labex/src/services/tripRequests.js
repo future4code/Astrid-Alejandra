@@ -1,10 +1,12 @@
 import axios from "axios";
 import { BASE_URL, token } from "../constants/requestsData";
 
-export const getTrips = () => {
+export const getTrips = (setTrips, trips) => {
   axios
     .get(`${BASE_URL}/trips`)
     .then((response) => {
+      setTrips(response.data.trips);
+      console.log("trips no request", trips);
       console.log("getTripsthen", response.data);
     })
     .catch((error) => {

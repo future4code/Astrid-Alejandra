@@ -14,27 +14,22 @@ function Header() {
     localStorage.removeItem("token");
   };
   return (
-    <Flex p="10px" background="#455561">
-      <Flex p="10px" w="50%" justify="center">
-        <Button
-          p="0 20px"
-          variant="link"
-          color="#B7D5D4"
-          onClick={() => goToHomePage(history)}
-        >
+    <Flex
+      p="10px"
+      h="9vh"
+      bgColor="violet"
+      opacity="0.8"
+      position="sticky"
+      top="0"
+    >
+      <Flex w="50%" justify="center">
+        <Button variant="outline" onClick={() => goToHomePage(history)}>
           Home
         </Button>
-        <Button
-          p="0 20px"
-          variant="link"
-          color="#B7D5D4"
-          onClick={() => goToTripsPage(history)}
-        >
+        <Button variant="outline" onClick={() => goToTripsPage(history)}>
           Trips
         </Button>
-        <Button p="0 20px" variant="link" color="#B7D5D4">
-          OUTRO BOTÃO
-        </Button>
+        <Button variant="outline">OUTRO BOTÃO</Button>
       </Flex>
       <Flex w="50%" justify="flex-end">
         <Button
