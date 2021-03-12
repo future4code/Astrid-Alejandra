@@ -5,9 +5,12 @@ import space from "../images/space.jpeg";
 import { Image } from "@chakra-ui/image";
 import { Button } from "@chakra-ui/button";
 import { getTrips } from "../services/tripRequests";
+import { goToApplicationFormPage } from "../router/Coordinator";
+import { useHistory } from "react-router";
 
 function HomePage() {
   const [trips, setTrips] = useState([]);
+  const history = useHistory();
 
   useEffect(() => {
     getTrips(setTrips, trips);
@@ -60,7 +63,7 @@ function HomePage() {
                       borderTop="1px solid lightgray"
                       borderBottom="1px solid lightgray"
                     >
-                      <Text>{trip.description}</Text>
+                      <Text textAlign="justify">{trip.description}</Text>
                       <Text fontSize="sm" paddingTop="0.2em" px="0.2em">
                         <strong>departing on {trip.date}</strong>
                       </Text>
@@ -70,7 +73,11 @@ function HomePage() {
                     </Flex>
                   </Flex>
                   <Flex justify="center" h="3em">
-                    <Button w="100%" m="0.5em">
+                    <Button
+                      w="100%"
+                      m="0.5em"
+                      onClick={() => goToApplicationFormPage(history)}
+                    >
                       APPLY
                     </Button>
                   </Flex>
