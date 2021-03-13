@@ -2,7 +2,7 @@ const Button = {
   variants: {
     solid: {
       color: "lightBlue",
-      bgColor: "mediumBlue",
+      bgColor: "midnightBlue",
       _hover: {
         bgColor: "violet",
       },

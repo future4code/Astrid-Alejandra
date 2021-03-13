@@ -2,8 +2,7 @@ import React from "react";
 import HomePage from "../pages/HomePage";
 import LoginPage from "../pages/LoginPage";
 import ApplicationFormPage from "../pages/ApplicationFormPage";
-import CreateTrip from "../components/CreateTrip";
-import TripsList from "../components/TripsList";
+import CreateTrip from "../pages/CreateTripPage";
 import Candidates from "../components/Candidates";
 import ErrorPage from "../pages/ErrorPage";
 import Header from "../components/Header";
@@ -19,7 +18,7 @@ function Router() {
         <Route exact path="/">
           <HomePage />
         </Route>
-        <Route exact path={"/application-form"}>
+        <Route exact path={"/application-form/:tripId"}>
           <ApplicationFormPage />
         </Route>
         <Route exact path={"/login"}>
@@ -30,9 +29,6 @@ function Router() {
         </Route>
         <Route exact path={"/trips/create"}>
           <CreateTrip />
-        </Route>
-        <Route exact path={"/trips/list"}>
-          <TripsList />
         </Route>
         <Route exact path={"/trips/details"}>
           <Candidates />
