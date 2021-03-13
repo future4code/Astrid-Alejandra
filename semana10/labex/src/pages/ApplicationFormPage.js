@@ -7,8 +7,27 @@ import {
   Button,
   Flex,
 } from "@chakra-ui/react";
+import useForm from "../hooks/useForm";
+import { applyToTrip } from "../services/tripRequests";
+import { useToast } from "@chakra-ui/toast";
 
 const ApplicationFormPage = () => {
+  const toast = useToast();
+  const [form, onChange, clear] = useForm({
+    name: "",
+    age: "",
+    applicationText: "",
+    profession: "",
+    country: "",
+  });
+
+  // EU DEVIA TER COMECADO FAZENDO O TRIP DETAILS, PRA DAI PEGAR O ID E DEPOIS FAZER O APPLYTOTRIP, BELE, VOU LÁ
+
+  const onSubmitForm = (event) => {
+    event.preventDefault();
+    console.log(form);
+    applyToTrip(form, toast);
+  };
   return (
     <Center h="90vh">
       <Flex bg="lightBlue" justify="center" align="center" w="100vw" p="2em">

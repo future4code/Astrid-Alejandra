@@ -1,14 +1,14 @@
 import React from "react";
 import { Input, FormControl, Center, Button } from "@chakra-ui/react";
 import useProtectedPage from "../hooks/useProtectedPage";
-import useInput from "../hooks/useInput";
+import useForm from "../hooks/useForm";
 
 function CreateTrip() {
-  const [name, onChangeName] = useInput();
-  const [planet, onChangePlanet] = useInput();
-  const [date, onChangeDate] = useInput();
-  const [description, onChangeDescription] = useInput();
-  const [durationInDays, onChangeDurationInDays] = useInput();
+  const [name, onChangeName] = useForm();
+  const [planet, onChangePlanet] = useForm();
+  const [date, onChangeDate] = useForm();
+  const [description, onChangeDescription] = useForm();
+  const [durationInDays, onChangeDurationInDays] = useForm();
   useProtectedPage();
 
   return (
