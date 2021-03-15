@@ -1,5 +1,5 @@
 {
-  "name": "exerciciosnode",
+  "name": "exercicio1",
   "version": "1.0.0",
   "description": "exercicios de node",
   "main": "index.js",
@@ -9,4 +9,5 @@
   },
   "author": "astrid bemporad",
   "license": "ISC"
+  
 }
