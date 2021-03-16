@@ -79,7 +79,7 @@ export class Post extends React.Component {
 
     return <div className={'post-container'}>
       <div className={'post-header'}>
-        <img className={'user-photo'} src={publicacao.fotoUsuario} alt={'Imagem do usuario'}/>
+        <img className={'user-photo'} src={this.props.fotoUsuario} alt={'Imagem do usuario'}/>
         <p>{this.props.nomeUsuario}</p>
       </div>
 

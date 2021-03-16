@@ -1,3 +1,4 @@
+
 /*INTERPRETAÇÃO 1
 A função pega a cotaçao e o valor em dolar, retornando o valor em RS. Faz isso recebendo o valor em dolar como parámetro, e recebendo o valor da cotação que o usuário inseriu. No console vai aparecer o 100 vezes a cotação que o usuário inseriu. 
 */
@@ -339,3 +340,4 @@ const atualizaSaldo = () => {
   console.log(contas);
 };
 atualizaSaldo();
+
