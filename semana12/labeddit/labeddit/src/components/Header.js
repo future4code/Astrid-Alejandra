@@ -23,9 +23,9 @@ const Header = ({ logged, setLogged }) => {
         <Button colorScheme="orange" variant="outline" onClick={onClickLog}>
           {logged}
         </Button>
-        <Button colorScheme="orange" variant="solid">
+        {/* <Button colorScheme="orange" variant="solid">
           Another button
-        </Button>
+        </Button> */}
       </ButtonGroup>
     </Flex>
   );
