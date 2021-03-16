@@ -1,10 +1,11 @@
 import React from "react";
 import { ChakraProvider } from "@chakra-ui/react";
 import MainPage from "./pages/MainPage";
+import astroTheme from "./theme/astroTheme";
 
 const App = () => {
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={astroTheme}>
       <MainPage />
     </ChakraProvider>
   );
