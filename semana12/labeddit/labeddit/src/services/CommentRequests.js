@@ -1,24 +1,43 @@
 import axios from "axios";
 import { BASE_URL, headers } from "../constants/requestsData";
 
-export const createCommentRequest = (body) => {
+export const createCommentRequest = (postId, body, clear, toast) => {
   axios
-    .post(`${BASE_URL}/posts/:postId/comment`, body, headers)
+    .post(`${BASE_URL}/posts/${postId}/comment`, body, headers)
     .then((response) => {
-      console.log("entrou no then newcomment", response.data);
+      clear();
+      toast({
+        position: "top",
+        title: "Success!",
+        description: "Your comment was created!",
+        status: "success",
+        duration: 1500,
+        isClosable: true,
+      });
     })
     .catch((error) => {
-      console.log(error.message);
+      toast({
+        position: "top",
+        title: "There was a problem",
+        description: error.message,
+        status: "error",
+        duration: 1500,
+        isClosable: true,
+      });
     });
 };
 
-export const voteCommentRequest = (body) => {
+export const voteCommentRequest = (body, postId, commentId) => {
   axios
-    .put(`${BASE_URL}/posts/:postId/comment/:commentId/vote`, body, headers)
+    .put(`${BASE_URL}/posts/${postId}/comment/${commentId}/vote`, body, headers)
     .then((response) => {
-      console.log("entrou no then", response.data);
+      alert(
+        "THEN Alert aqui só pra mostrar que o request está funcionando, porque não está atualizando automáticamente ainda"
+      );
     })
     .catch((error) => {
-      console.log(error.message);
+      alert(
+        "ERROR Alert aqui só pra mostrar que o request está funcionando, porque não está atualizando automáticamente ainda"
+      );
     });
 };
