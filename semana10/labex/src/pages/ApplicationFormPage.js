@@ -7,10 +7,12 @@ import { useParams } from "react-router";
 
 const ApplicationFormPage = () => {
   const [trips, setTrips] = useState([]);
+  const [selectValue, setSelectValue] = useState("");
   const pathParams = useParams();
+  const tripId = pathParams.tripId;
 
   useEffect(() => {
-    getTrips(setTrips, trips);
+    getTrips(setTrips, trips, toast);
   }, []);
 
   const toast = useToast();
@@ -24,9 +26,16 @@ const ApplicationFormPage = () => {
 
   const onSubmitForm = (event) => {
     event.preventDefault();
-    console.log(form);
-    applyToTrip(form, toast);
+    applyToTrip(form, form.trip, toast);
+    clear();
   };
+
+  const onChangeSelect = (event) => {
+    setSelectValue(event.target.value);
+  };
+
+  console.log(form.trip);
+  console.log(selectValue);
 
   return (
     <Center h="90vh">
@@ -81,17 +90,24 @@ const ApplicationFormPage = () => {
             isRequired
             placeholder="Trip of interest"
             _placeholder={{ color: "#333333" }}
+            name="trip"
+            value={form.trip}
+            onChange={onChangeSelect}
           >
             {trips &&
               trips.map((trip) => {
-                if (pathParams.tripId === trip.id) {
+                if (tripId === trip.id) {
                   return (
-                    <option selected="selected" key={trip.id}>
+                    <option selected="selected" value={trip.id} key={trip.id}>
                       {trip.name}
                     </option>
                   );
                 } else {
-                  return <option key={trip.id}>{trip.name}</option>;
+                  return (
+                    <option key={trip.id} value={trip.id}>
+                      {trip.name}
+                    </option>
+                  );
                 }
               })}
           </Select>
