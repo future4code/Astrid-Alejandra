@@ -13,10 +13,6 @@ const ApplicationFormPage = () => {
 
   useEffect(() => {
     getTrips(setTrips, trips, toast);
-  const pathParams = useParams();
-
-  useEffect(() => {
-    getTrips(setTrips, trips);
   }, []);
 
   const toast = useToast();
@@ -40,10 +36,6 @@ const ApplicationFormPage = () => {
 
   console.log(form.trip);
   console.log(selectValue);
-
-    console.log(form);
-    applyToTrip(form, toast);
-  };
 
   return (
     <Center h="90vh">
@@ -107,12 +99,6 @@ const ApplicationFormPage = () => {
                 if (tripId === trip.id) {
                   return (
                     <option selected="selected" value={trip.id} key={trip.id}>
-          >
-            {trips &&
-              trips.map((trip) => {
-                if (pathParams.tripId === trip.id) {
-                  return (
-                    <option selected="selected" key={trip.id}>
                       {trip.name}
                     </option>
                   );
@@ -122,7 +108,6 @@ const ApplicationFormPage = () => {
                       {trip.name}
                     </option>
                   );
-                  return <option key={trip.id}>{trip.name}</option>;
                 }
               })}
           </Select>

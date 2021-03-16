@@ -67,6 +67,7 @@ export const applyToTrip = (body, tripId, toast) => {
         duration: 3000,
         isClosable: true,
       });
+      console.log("applyToTripthen", response.data);
     })
     .catch((error) => {
       toast({

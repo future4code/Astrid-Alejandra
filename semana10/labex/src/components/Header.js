@@ -35,7 +35,7 @@ const Header = () => {
         <Button
           mx="8px"
           variant="solid"
-          onClick={() => goToApplicationFormPage(history)}
+          onClick={() => goToApplicationFormPage(history, false)}
         >
           Apply for a trip
         </Button>
