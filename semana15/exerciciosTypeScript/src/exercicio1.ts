@@ -43,6 +43,6 @@ const person3: person = {
 
 const people: person[] = [person1, person2, person3]
 
-console.log(`${people[0].name}'s ${people[0].age} years old and likes ${people[0].favoriteColor} very much!`)
-console.log(`${people[1].name}'s ${people[1].age} years old and likes ${people[1].favoriteColor} very much!`)
-console.log(`${people[2].name}'s ${people[2].age} years old and likes ${people[2].favoriteColor} very much!`)
+people.map((person)=> {
+    console.log(`${person.name}'s ${person.age} years old and likes ${person.favoriteColor} very much!`)
+})
