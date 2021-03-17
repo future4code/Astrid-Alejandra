@@ -1,0 +1,12 @@
+{
+  "name": "exerciciostypescript",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start1": "tsc && clear && node ./build/exercicio1.js"
+    
+  },
+  "author": "astrid bemporad",
+  "license": "ISC"
+}
