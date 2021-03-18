@@ -7,16 +7,19 @@ import { useParams } from "react-router";
 
 const ApplicationFormPage = () => {
   const [trips, setTrips] = useState([]);
+<<<<<<< Updated upstream
   const [selectValue, setSelectValue] = useState("");
   const pathParams = useParams();
   const tripId = pathParams.tripId;
 
   useEffect(() => {
     getTrips(setTrips, trips, toast);
+=======
   const pathParams = useParams();
 
   useEffect(() => {
     getTrips(setTrips, trips);
+>>>>>>> Stashed changes
   }, []);
 
   const toast = useToast();
@@ -30,6 +33,7 @@ const ApplicationFormPage = () => {
 
   const onSubmitForm = (event) => {
     event.preventDefault();
+<<<<<<< Updated upstream
     applyToTrip(form, form.trip, toast);
     clear();
   };
@@ -41,10 +45,12 @@ const ApplicationFormPage = () => {
   console.log(form.trip);
   console.log(selectValue);
 
+=======
     console.log(form);
     applyToTrip(form, toast);
   };
 
+>>>>>>> Stashed changes
   return (
     <Center h="90vh">
       <Flex bg="lightBlue" justify="center" align="center" w="100vw" p="2em">
@@ -98,6 +104,7 @@ const ApplicationFormPage = () => {
             isRequired
             placeholder="Trip of interest"
             _placeholder={{ color: "#333333" }}
+<<<<<<< Updated upstream
             name="trip"
             value={form.trip}
             onChange={onChangeSelect}
@@ -107,22 +114,27 @@ const ApplicationFormPage = () => {
                 if (tripId === trip.id) {
                   return (
                     <option selected="selected" value={trip.id} key={trip.id}>
+=======
           >
             {trips &&
               trips.map((trip) => {
                 if (pathParams.tripId === trip.id) {
                   return (
                     <option selected="selected" key={trip.id}>
+>>>>>>> Stashed changes
                       {trip.name}
                     </option>
                   );
                 } else {
+<<<<<<< Updated upstream
                   return (
                     <option key={trip.id} value={trip.id}>
                       {trip.name}
                     </option>
                   );
+=======
                   return <option key={trip.id}>{trip.name}</option>;
+>>>>>>> Stashed changes
                 }
               })}
           </Select>

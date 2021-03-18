@@ -25,6 +25,7 @@ export const getTripDetail = (tripId, toast) => {
       console.log("getTripDetailsthen", response.data);
     })
     .catch((error) => {
+      console.log(error.message);
       toast({
         title: "Ooops, there was a problem!",
         description: error.message,
@@ -58,6 +59,14 @@ export const applyToTrip = (body, tripId, toast) => {
       headers: { auth: token },
     })
     .then((response) => {
+      console.log("entrei no then");
+      toast({
+        title: "Success!",
+        description: response.data.message,
+        status: "success",
+        duration: 3000,
+        isClosable: true,
+      });
       console.log("applyToTripthen", response.data);
     })
     .catch((error) => {
