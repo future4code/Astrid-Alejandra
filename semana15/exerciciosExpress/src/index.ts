@@ -74,3 +74,39 @@ app.get("/countries/:id", (req: Request, res: Response) => {
 app.listen(3003, () => {
     console.log("server pronto")
 })
+
+//ENDPOINT 4
+
+app.put("/countries/edit/:id", (req: Request, res: Response) => {
+let errorCode: number = 400
+
+const {name, capital} = req.body
+
+try {
+    const countryIndex: number = countries.findIndex(
+        country => country.id === Number(req.params.id)
+    )
+    if (countryIndex === -1) {
+        errorCode = 404
+        throw new Error("Country not found")
+    }
+    if(!name && !capital) {
+        throw new Error("You must enter a name or capital to update")
+    }
+    if(name){
+        countries[countryIndex].name = name
+    }
+    if(capital){
+        countries[countryIndex].capital = capital
+    }
+
+    res
+    .status(200)
+    .send("Country was updated successfully!")
+} catch (error) {
+    res
+    .status(errorCode)
+    .send(error.message)
+}
+
+})
