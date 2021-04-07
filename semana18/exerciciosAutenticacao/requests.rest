@@ -15,3 +15,15 @@ Content-Type: application/json
     "email": "prupru@mail.com",
     "password": "123456"
 }
+
+
+###
+
+//@token = {{signup.response.body.newUser.token}}
+PUT http://localhost:3003/users/edit
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+    "name": "Opa"
+}
