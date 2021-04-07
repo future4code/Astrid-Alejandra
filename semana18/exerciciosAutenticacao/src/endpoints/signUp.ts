@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import connection from "../connection";
 import { generateToken } from "../services/authenticator";
 import generateId from "../services/idGenerator";
-import User from "../types/user";
+import { User } from "../types/types";
 
 const signUp = async (req: Request, res: Response): Promise<void> => {
   try {
