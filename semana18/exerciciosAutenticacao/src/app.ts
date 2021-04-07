@@ -1,7 +1,6 @@
 import express, { Express } from "express";
 import { AddressInfo } from "net";
 import cors from "cors";
-import createUser from "./endpoints/createUser";
 import index from "./index";
 
 const app: Express = express();

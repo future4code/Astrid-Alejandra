@@ -1,9 +1,10 @@
 import { Request, Response } from "express";
 import connection from "../connection";
+import { generateToken } from "../services/authenticator";
 import generateId from "../services/idGenerator";
 import User from "../types/user";
 
-const createUser = async (req: Request, res: Response): Promise<void> => {
+const signUp = async (req: Request, res: Response): Promise<void> => {
   try {
     const id: string = generateId();
     const { email, password } = req.body;
@@ -17,13 +18,16 @@ const createUser = async (req: Request, res: Response): Promise<void> => {
       throw new Error(`Please enter an email and a password!`);
     }
 
-    const verifyEmail = await verifyUniqueEmail(email);
-    if (!verifyEmail) {
+    const verifiedEmail = await verifyUniqueEmail(email);
+    if (!verifiedEmail) {
       res.statusCode = 409;
       throw new Error(`This email ${email} already exists`);
     } else {
       await insertUser(userData);
-      res.status(200).send(`User was created!`);
+
+      const token: string = generateToken({ id });
+
+      res.status(200).send({ message: "User was created!", token });
     }
   } catch (error) {
     res.status(400).send({ message: error.message });
@@ -36,7 +40,7 @@ const insertUser = async (userData: User) => {
   return result;
 };
 
-const verifyUniqueEmail = async (reqEmail: string) => {
+const verifyUniqueEmail = async (reqEmail: string): Promise<boolean> => {
   const result = await connection("User")
     .select("email")
     .where({ email: reqEmail });
@@ -48,4 +52,4 @@ const verifyUniqueEmail = async (reqEmail: string) => {
   }
 };
 
-export default createUser;
+export default signUp;
