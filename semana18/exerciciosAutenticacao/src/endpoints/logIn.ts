@@ -5,54 +5,51 @@ import { generateToken } from "../services/authenticator";
 const logIn = async (req: Request, res: Response): Promise<void> => {
   try {
     const { email, password } = req.body;
-    const userData = {
-      email: email,
-      password: password,
-    };
-    if (!email || !password) {
-      res.statusCode = 422;
-      throw new Error(`Please enter an email and a password!`);
-    }
-    const verifiedEmail = await verifyEmail(email);
 
-    if (!verifiedEmail) {
-      res.status(404).send({
-        message: `This email ${email} doesn't exist. Please sign up first.`,
-      });
+    if (!password || !email.includes("@")) {
+      res.statusCode = 422;
+      throw new Error("Please enter both email and password");
+    }
+
+    const verifiedEmail = await queryIsEmailOnDatabase(email);
+    if (verifiedEmail[0] === false) {
+      res.statusCode = 403;
+      throw new Error(
+        `This email ${email} doesn't exist. Please sign up first.`
+      );
     }
     const id = String(verifiedEmail[1]);
     const token: string = generateToken({ id });
 
-    const verifiedPassword = await verifyPassword(email, password);
+    const verifiedPassword = await queryValidPassword(email, password);
+
     if (!verifiedPassword) {
-      res.status(403).send({ message: `Invalid password` });
-    } else {
-      res.status(200).send({ token, message: `Successfully logged in!` });
+      res.statusCode = 403;
+      throw new Error("The password you’ve entered is incorrect.");
     }
+
+    res.status(200).send({
+      token: token,
+      message: "Successfully logged in. ",
+    });
   } catch (error) {
-    if (res.statusCode === 200) {
-      res.status(500).send({ message: "Internal server error" });
-    } else {
-      res.status(400).send({ message: error.message });
-    }
+    res.status(400).send({ message: error.message });
   }
 };
 
-const verifyEmail = async (reqEmail: string): Promise<(boolean | any[])[]> => {
+const queryIsEmailOnDatabase = async (reqEmail: string): Promise<any[]> => {
   const result = await connection("User")
     .select("id")
     .where({ email: reqEmail });
-
-  const id = result[0].id;
-
-  if (result.length > 0) {
-    return [true, id];
-  } else {
+  if (result.length === 0) {
     return [false];
+  } else {
+    const id: string = result[0].id;
+    return [true, id];
   }
 };
 
-const verifyPassword = async (
+const queryValidPassword = async (
   reqEmail: string,
   reqPassword: string
 ): Promise<boolean> => {
@@ -61,10 +58,10 @@ const verifyPassword = async (
     .where({ email: reqEmail })
     .andWhere({ password: reqPassword });
 
-  if (result.length > 0) {
-    return true;
-  } else {
+  if (result.length === 0) {
     return false;
+  } else {
+    return true;
   }
 };
 
