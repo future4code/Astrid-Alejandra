@@ -21,7 +21,7 @@ const createUser = async (req: Request, res: Response): Promise<void> => {
       throw new Error(`${email} is already being used`);
     } else {
       const newUser = await insertUser(userData);
-      res.send(newUser);
+      res.send(`${name}'s user successfully created`);
     }
   } catch (error) {
     if (res.statusCode === 200) {
