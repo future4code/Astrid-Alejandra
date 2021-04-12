@@ -26,9 +26,12 @@ PUT http://localhost:3003/tasks
 Content-Type: application/json
 
 {
-    "title": "Fazer yoga",
-    "description": "Alongar o corpo, meditar e relaxar",
-    "deadline": "20/05/2020",
-    "idCreatedBy": "2"
+    "title": "Limpar a casa",
+    "description": "Por quê tanta poeira, Betim?",
+    "deadline": "20/04/2022",
+    "idCreatedBy": "4"
     
 }
+###
+GET http://localhost:3003/tasks/1
+###

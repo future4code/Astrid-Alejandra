@@ -26,8 +26,8 @@ const createTask = async (req: Request, res: Response): Promise<void> => {
     }
 
     const newTask = await insertTask(taskData);
-
-    res.status(201).send({ message: "Task was successfully created", newTask });
+    const id = newTask[0];
+    res.status(201).send({ message: "Task was successfully created", id });
   } catch (error) {
     if (res.statusCode === 200) {
       res.status(500).send({ message: error.message });
