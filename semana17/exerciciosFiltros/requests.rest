@@ -1,0 +1,8 @@
+GET http://localhost:3003/users/all
+###
+GET http://localhost:3003/users/name?name=maddf
+###
+GET http://localhost:3003/users/search?name=ma&orderBy=type&orderType=desc
+###
+GET http://localhost:3003/users/search/x
+###
