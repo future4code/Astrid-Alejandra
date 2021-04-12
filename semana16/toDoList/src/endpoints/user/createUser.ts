@@ -21,7 +21,10 @@ const createUser = async (req: Request, res: Response): Promise<void> => {
       throw new Error(`${email} is already being used`);
     } else {
       const newUser = await insertUser(userData);
-      res.send(`${name}'s user successfully created`);
+      const createdUser = await queryUserById(newUser[0]);
+      res
+        .status(201)
+        .send({ message: `${name}'s user successfully created`, createdUser });
     }
   } catch (error) {
     if (res.statusCode === 200) {
@@ -49,5 +52,9 @@ const verifyEmail = async (reqEmail: string): Promise<boolean> => {
     return false;
   }
 };
+const queryUserById = async (id: number): Promise<User[]> => {
+  const result = await connection("TDLUser").select("*").where({ id: id });
 
+  return result[0];
+};
 export default createUser;

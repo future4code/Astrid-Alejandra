@@ -11,49 +11,51 @@ const editUserById = async (req: Request, res: Response): Promise<void> => {
       nickname: nickname,
       email: email,
     };
-    if (!id || isNaN(id)) {
+    if (isNaN(id)) {
       res.statusCode = 400;
-      throw new Error("And Id must be given, and it must be a number");
+      throw new Error("ID must be a number");
     }
-    if (
-      name === "" ||
-      nickname === "" ||
-      email === "" ||
-      !email.includes("@")
-    ) {
+    // aparentemente uma validação desnecessária, parece que a anterior já cuida disso aqui
+    if (name === "" || nickname === "" || email === "") {
       res.statusCode = 400;
-      throw new Error(
-        "Updating any field to empty is not allowed and email must include @ when updated"
-      );
+      throw new Error("Updating fields to 'empty' is not allowed");
     }
-    const updateUser = await queryUpdateById(userData, id);
+    if (!name && !nickname && !email) {
+      res.statusCode = 400;
+      throw new Error("Fill at least one field to update");
+    }
+
+    if (email && !email.includes("@")) {
+      res.statusCode = 400;
+      throw new Error("Email must have an @");
+    }
+
+    await queryUpdateUserById(id, userData);
     const updatedUser = await queryUserById(id);
 
-    res.send({ message: "User was updated", updatedUser });
+    res.status(200).send({ message: "User was updated!", updatedUser });
   } catch (error) {
     if (res.statusCode === 200) {
-      res.status(500).send("Internal Server Error");
+      res.status(500).send({ message: error.message });
     } else {
       res.send({ message: error.message });
     }
   }
 };
 
-const queryUpdateById = async (
-  userData: User,
-  reqId: number
+const queryUpdateUserById = async (
+  reqId: number,
+  userData: User
 ): Promise<number> => {
-  const result = await connection("TDLUser")
-    .update(userData)
-    .where({ id: reqId });
+  const result = connection("TDLUser").update(userData).where({ id: reqId });
 
   return result;
 };
 
 const queryUserById = async (reqId: number): Promise<User[]> => {
-  const result = await connection("TDLUser").select("*").where({ id: reqId });
+  const result = connection("TDLUser").select("*").where({ id: reqId });
 
-  return result[0];
+  return result;
 };
 
 export default editUserById;

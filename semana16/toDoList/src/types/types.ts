@@ -6,14 +6,13 @@ export type User = {
 
 export type Task = {
   title: string;
-  deadline: Date;
-  status: Status;
-  createdBy: string;
   description: string;
+  deadline: string;
+  id_created_by: number;
 };
 
 export enum Status {
-  TODO = "to_do",
+  TODO = "to do",
   DOING = "doing",
   DONE = "done",
 }
