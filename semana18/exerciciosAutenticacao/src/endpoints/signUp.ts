@@ -13,9 +13,9 @@ const signUp = async (req: Request, res: Response): Promise<void> => {
       email: email,
       password: password,
     };
-    if (!email || !password) {
+    if (!email || !password || !email.includes("@")) {
       res.statusCode = 422;
-      throw new Error(`Please enter an email and a password!`);
+      throw new Error(`Please enter a valid email and a password!`);
     }
 
     const verifiedEmail = await verifyUniqueEmail(email);

@@ -22,7 +22,7 @@ Content-Type: application/json
 //@token = {{signup.response.body.newUser.token}}
 PUT http://localhost:3003/users/edit
 Content-Type: application/json
-Authorization: {{token}}
+//Authorization: {{token}}
 
 {
     "name": "Opa"
