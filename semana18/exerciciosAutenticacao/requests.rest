@@ -24,3 +24,4 @@ Content-Type: application/json
 GET http://localhost:3003/users/profile
 Authorization: {{token}}
 ###
+
