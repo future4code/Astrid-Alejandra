@@ -1,0 +1,22 @@
+GET http://localhost:3003/users
+###
+POST http://localhost:3003/users/signup
+Content-Type: application/json
+
+{
+    "email": "monstera@mail.com",
+    "password": "abcdef",
+    "role": "normal",
+    "cep": "25620023",
+    "number": "123",
+    "complement": "opa"
+}
+###
+POST http://localhost:3003/users/login
+Content-Type: application/json
+
+{
+    "email": "delonix@mail.com",
+    "password": "123456"
+ 
+}
