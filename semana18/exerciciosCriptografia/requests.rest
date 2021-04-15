@@ -4,7 +4,7 @@ POST http://localhost:3003/users/signup
 Content-Type: application/json
 
 {
-    "email": "strongylodon@mail.com",
+    "email": "delonix@mail.com",
     "password": "123456"
 }
 ###
@@ -12,7 +12,7 @@ POST http://localhost:3003/users/login
 Content-Type: application/json
 
 {
-    "email": "moka@mail.com",
+    "email": "delonix@mail.com",
     "password": "123456"
  
 }
