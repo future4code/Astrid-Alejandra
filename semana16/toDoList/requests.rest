@@ -1,0 +1,37 @@
+GET http://localhost:3003/users
+
+###
+PUT http://localhost:3003/users
+Content-Type: application/json
+
+{
+    "name": "Delonix",
+    "nickname": "regia",
+    "email": "delonix@mail.com"
+}
+###
+GET http://localhost:3003/users/1
+###
+POST http://localhost:3003/users/edit/1
+Content-Type: application/json
+
+{
+    "email": "astrid@mail.com"
+}
+
+###
+GET http://localhost:3003/tasks
+###
+PUT http://localhost:3003/tasks
+Content-Type: application/json
+
+{
+    "title": "Limpar a casa",
+    "description": "Por quê tanta poeira, Betim?",
+    "deadline": "20/04/2022",
+    "idCreatedBy": "4"
+    
+}
+###
+GET http://localhost:3003/tasks/1
+###
