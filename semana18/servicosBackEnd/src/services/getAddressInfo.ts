@@ -17,7 +17,6 @@ const getAddressInfo = async (cep: string): Promise<addressInfo | null> => {
     };
     return addressInfo;
   } catch (error) {
-    console.log(error.message);
     return null;
   }
 };

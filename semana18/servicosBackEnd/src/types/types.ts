@@ -8,6 +8,9 @@ export type User = {
   email: string;
   password: string;
   role: userRole;
+  cep: string;
+  number: number;
+  complement: string;
 };
 
 export enum userRole {
