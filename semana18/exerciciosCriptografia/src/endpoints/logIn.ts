@@ -23,7 +23,7 @@ const logIn = async (req: Request, res: Response): Promise<void> => {
     const role = String(verifiedEmail[2]);
 
     const token: string = generateToken({ id, role });
-    const verifiedPassword = await queryValidPassword(email, password);
+    const verifiedPassword = await queryValidPassword(email);
 
     if (verifiedPassword) {
       const hashCompare = await compare(password, verifiedPassword[1]);
@@ -56,10 +56,7 @@ const queryIsEmailOnDatabase = async (reqEmail: string): Promise<any[]> => {
   }
 };
 
-const queryValidPassword = async (
-  reqEmail: string,
-  reqPassword: string
-): Promise<any[]> => {
+const queryValidPassword = async (reqEmail: string): Promise<any[]> => {
   const result = await connection("User")
     .select("password")
     .where({ email: reqEmail });
