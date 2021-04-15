@@ -6,9 +6,14 @@ const logIn = async (req: Request, res: Response): Promise<void> => {
   try {
     const { email, password } = req.body;
 
-    if (!password || !email.includes("@")) {
+    const userData = {
+      email: email,
+      password: password,
+    };
+    if (!email || !password || !email.includes("@")) {
       res.statusCode = 422;
-      throw new Error("Please enter both email and password");
+      throw new Error(`Please enter a valid email and a password!`);
+
     }
 
     const verifiedEmail = await queryIsEmailOnDatabase(email);
