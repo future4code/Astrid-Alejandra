@@ -12,7 +12,7 @@ const deleteUserById = async (req: Request, res: Response): Promise<void> => {
       res.statusCode = 401;
       throw new Error("A token is required");
     }
-    const authData = getTokenData(token);
+    const authData = await getTokenData(token);
 
     if (!authData) {
       res.statusCode = 403;

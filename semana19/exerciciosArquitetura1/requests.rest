@@ -1,17 +1,16 @@
-GET http://localhost:3003/users
-###
 POST http://localhost:3003/users/signup
 Content-Type: application/json
 
 {
-    "email": "monstera@mail.com",
+    "email": "prupru@mail.com",
     "password": "abcdef",
     "role": "normal",
-    "cep": "25620023",
+    "cep": "25655090",
     "number": "123",
     "complement": "opa"
 }
 ###
+@name= logIn
 POST http://localhost:3003/users/login
 Content-Type: application/json
 
@@ -20,3 +19,7 @@ Content-Type: application/json
     "password": "123456"
  
 }
+###
+@token = logIn.response.body.token
+GET http://localhost:3003/users
+Authorization: {{token}}

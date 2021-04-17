@@ -21,7 +21,7 @@ export const getTokenData = (token: string): authenticationData | null => {
 
     return { id, role };
   } catch (error) {
-    console.log(error.message);
+    console.log({ message: error.message });
     return null;
   }
 };

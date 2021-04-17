@@ -7,7 +7,7 @@ export const querySelectAllUsers = async (): Promise<User[]> => {
       .select("id", "email", "role", "cep")
       .from("User");
 
-    return result[0];
+    return result;
   } catch (error) {
     throw new Error(error.sqlMessage || error.message);
   }
