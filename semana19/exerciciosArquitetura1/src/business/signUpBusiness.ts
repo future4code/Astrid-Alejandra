@@ -14,11 +14,11 @@ import { generateToken } from "../services/authenticator";
 
 const signUpBusiness = async (input: signUpInput): Promise<string> => {
   try {
-    const id: string = generateId();
     const cypherText = await hash(input.password);
 
     if (
       !input.password ||
+      !input.email ||
       !input.role ||
       !input.cep ||
       !input.number ||
@@ -38,6 +38,7 @@ const signUpBusiness = async (input: signUpInput): Promise<string> => {
       throw new InvalidRoleInputError("Please, pick NORMAL or ADMIN");
     }
 
+    // acho que essa validação é feita automáticamente pelo banco, quando o email está definido como unique
     const verifiedEmail = await verifyUniqueEmail(input.email);
     if (!verifiedEmail) {
       throw new DuplicatedEmailError(
@@ -45,12 +46,23 @@ const signUpBusiness = async (input: signUpInput): Promise<string> => {
       );
     }
 
-    await insertUser(input);
-
     const addressData = await getAddressInfo(input.cep);
     if (addressData?.city === undefined) {
       throw new InvalidCepError("Cep is invalid");
     }
+
+    const id: string = generateId();
+
+    let userData = {
+      id,
+      password: cypherText,
+      email: input.email,
+      role: input.role,
+      cep: input.cep,
+      number: input.number,
+      complement: input.complement,
+    };
+    await insertUser(userData);
 
     const addressFormatted = {
       user_id: id,
@@ -67,7 +79,7 @@ const signUpBusiness = async (input: signUpInput): Promise<string> => {
 
     return token;
   } catch (error) {
-    throw new Error(error.message);
+    throw new Error(error.sqlMessage || error.message);
   }
 };
 

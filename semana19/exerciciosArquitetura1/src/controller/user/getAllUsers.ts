@@ -1,7 +1,5 @@
 import { Request, Response } from "express";
 import getAllUsersBusiness from "../../business/getAllUsersBusiness";
-import { selectAllUsers } from "../../data/selectAllUsers";
-import { User } from "../../model/types";
 
 const getAllUsers = async (req: Request, res: Response): Promise<void> => {
   try {

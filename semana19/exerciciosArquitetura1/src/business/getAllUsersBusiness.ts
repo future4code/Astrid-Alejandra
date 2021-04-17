@@ -1,10 +1,9 @@
-import { selectAllUsers } from "../data/selectAllUsers";
+import { querySelectAllUsers } from "../data/querySelectAllUsers";
 import { NoUsersFoundError } from "../error/NoUsersFoundError";
-import { User } from "../model/types";
 
 const getAllUsersBusiness = async () => {
   try {
-    const users = await selectAllUsers();
+    const users = await querySelectAllUsers();
 
     if (users.length === 0) {
       throw new NoUsersFoundError(`No users found.`);
