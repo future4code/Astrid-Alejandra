@@ -5,7 +5,7 @@ import { insertAddress } from "../data/insertAddress";
 import { MissingInputFieldsError } from "../error/MissingInputFieldsError";
 import { InvalidEmailError } from "../error/InvalidEmailError";
 import { InvalidRoleInputError } from "../error/InvalidRoleInputError";
-import { verifyUniqueEmail } from "../data/verifyUniqueEmail";
+import { verifyEmail } from "../data/verifyEmail";
 import { DuplicatedEmailError } from "../error/DuplicatedEmailError";
 import { insertUser } from "../data/insertUser";
 import getAddressInfo from "../services/getAddressInfo";
@@ -24,11 +24,11 @@ const signUpBusiness = async (input: signUpInput): Promise<string> => {
       !input.number ||
       !input.complement
     ) {
-      throw new MissingInputFieldsError(`Please, complete every field`);
+      throw new MissingInputFieldsError();
     }
 
     if (!input.email.includes("@")) {
-      throw new InvalidEmailError(`Please, enter a valid email`);
+      throw new InvalidEmailError();
     }
 
     if (
@@ -39,11 +39,10 @@ const signUpBusiness = async (input: signUpInput): Promise<string> => {
     }
 
     // acho que essa validação é feita automáticamente pelo banco, quando o email está definido como unique
-    const verifiedEmail = await verifyUniqueEmail(input.email);
+    // acho que posso acessar o erro pelo sql.message
+    const verifiedEmail = await verifyEmail(input.email);
     if (!verifiedEmail) {
-      throw new DuplicatedEmailError(
-        `This email ${input.email} already exists`
-      );
+      throw new DuplicatedEmailError();
     }
 
     const addressData = await getAddressInfo(input.cep);

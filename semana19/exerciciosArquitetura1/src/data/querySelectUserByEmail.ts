@@ -1,11 +1,12 @@
 import { User } from "../model/types";
 import connection from "./connection";
 
-export const querySelectAllUsers = async (): Promise<User[]> => {
+export const querySelectUserByEmail = async (email: string): Promise<User> => {
   try {
     const result = await connection
-      .select("id", "email", "role", "cep")
-      .from("User");
+      .select("id", "role", "password")
+      .from("User")
+      .where({ email });
 
     return result[0];
   } catch (error) {

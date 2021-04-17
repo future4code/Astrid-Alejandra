@@ -1,5 +1,3 @@
-import { InvalidRoleInputError } from "../error/InvalidRoleInputError";
-
 export type authenticationData = {
   id: string;
   role: string;
@@ -48,4 +46,9 @@ export type signUpInput = {
   cep: string;
   number: string;
   complement: string;
+};
+
+export type logInInput = {
+  email: string;
+  password: string;
 };

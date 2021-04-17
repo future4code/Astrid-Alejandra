@@ -4,6 +4,7 @@ import getAllUsers from "./controller/user/getAllUsers";
 import logIn from "./controller/user/logIn";
 import signUp from "./controller/user/signUp";
 import deleteUserById from "./controller/user/deleteUserById";
+import { querySelectUserByEmail } from "./data/querySelectUserByEmail";
 
 const index = Router();
 
@@ -14,7 +15,7 @@ index.post("/users/login", logIn);
 index.delete("/users/:id", deleteUserById);
 
 // const lalala = async () => {
-//   const hehehe = await getAllUsersBusiness();
+//   const hehehe = await querySelectUserByEmail("prupru@mail.com");
 //   console.log(hehehe);
 // };
 

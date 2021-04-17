@@ -1,6 +1,6 @@
 import connection from "./connection";
 
-export const verifyUniqueEmail = async (reqEmail: string): Promise<boolean> => {
+export const verifyEmail = async (reqEmail: string): Promise<boolean> => {
   const result = await connection("User")
     .select("email")
     .where({ email: reqEmail });

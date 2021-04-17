@@ -1,7 +1,7 @@
 import { BaseError } from "./BaseError";
 
 export class MissingInputFieldsError extends BaseError {
-  constructor(message: string) {
-    super(message, 422);
+  constructor() {
+    super("Please, complete every field", 422);
   }
 }
