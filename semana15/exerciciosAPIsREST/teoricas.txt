@@ -1,0 +1,2 @@
+1. a- Método get
+1. b- pelo id, usando path parameters

@@ -4,12 +4,12 @@ POST http://localhost:3003/users/signup
 Content-Type: application/json
 
 {
-    "email": "monstera@mail.com",
+    "email": "erithrina@mail.com",
     "password": "abcdef",
-    "role": "normal",
-    "cep": "25620023",
-    "number": "123",
-    "complement": "opa"
+    "role": "admin",
+    "cep": "25655090",
+    "number": "484",
+    "complement": "casa 3"
 }
 ###
 POST http://localhost:3003/users/login

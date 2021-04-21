@@ -1,0 +1,23 @@
+GET http://localhost:3003/actors/051
+###
+GET http://localhost:3003/actors?name=ka
+###
+GET http://localhost:3003/actors/gender?gender=male
+###
+POST http://localhost:3003/actors
+Content-Type: application/json
+
+{
+    "id": "058",
+    "name": "Moka",
+    "salary": "1000000",
+    "birth_date": "2019-05-10",
+    "gender": "male"
+}
+###
+POST http://localhost:3003/actors/051
+Content-Type: application/json
+
+{
+    "salary": "888777"
+}
