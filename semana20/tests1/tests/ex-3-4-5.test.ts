@@ -4,7 +4,7 @@ import {
   LOCATION,
   NATIONALITY,
   Player,
-} from "../src/ex-3-e-4";
+} from "../src/ex-3-4-5";
 
 const casinoBR: Casino = {
   name: "Casino BR 1",
@@ -71,9 +71,14 @@ describe("Test player age and country verifications", () => {
 });
 
 describe("Exercise 5", () => {
-  test("One brazilian allowed 0<length<2", () => {
+  test("One brazilian allowed, allowed 0<length<2", () => {
     const result = isPlayerAllowed(casinoBR, players1);
     expect(result.brazilians.allowed.length).toBeGreaterThan(0);
     expect(result.brazilians.allowed.length).toBeLessThan(2);
+  });
+
+  test("One american allowed, unallowed length === 0", () => {
+    const result = isPlayerAllowed(casinoBR, players2);
+    expect(result.americans.notAllowed.length).toBe(0);
   });
 });

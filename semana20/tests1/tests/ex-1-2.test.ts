@@ -1,5 +1,5 @@
-import { canUserBuy } from "../src/ex-1-e-2";
-import { User } from "../src/ex-1-e-2";
+import { canUserBuy } from "../src/ex-1-2";
+import { User } from "../src/ex-1-2";
 
 const user1: User = {
   name: "Ástrid",
