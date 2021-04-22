@@ -4,22 +4,14 @@ import {
   LOCATION,
   NATIONALITY,
   Player,
-} from "../src/ex-3";
+} from "../src/ex-3-e-4";
 
-const casino1: Casino = {
+const casinoBR: Casino = {
   name: "Casino BR 1",
   location: LOCATION.BRAZIL,
 };
-const casino2: Casino = {
-  name: "Casino BR 2",
-  location: LOCATION.BRAZIL,
-};
-const casino3: Casino = {
+const casinoEUA: Casino = {
   name: "Casino EUA 1",
-  location: LOCATION.EUA,
-};
-const casino4: Casino = {
-  name: "Casino EUA 2",
   location: LOCATION.EUA,
 };
 
@@ -44,17 +36,17 @@ const players4: Player[] = [
 
 describe("Test player age and country verifications", () => {
   test("One brazilian allowed", () => {
-    const result = isPlayerAllowed(casino1, players1);
+    const result = isPlayerAllowed(casinoBR, players1);
     expect(result.brazilians.allowed).toEqual([players1[0].name]);
   });
 
   test("One american allowed", () => {
-    const result = isPlayerAllowed(casino2, players2);
+    const result = isPlayerAllowed(casinoBR, players2);
     expect(result.americans.allowed).toEqual([players2[0].name]);
   });
 
   test("No one allowed", () => {
-    const result = isPlayerAllowed(casino3, players3);
+    const result = isPlayerAllowed(casinoEUA, players3);
     expect(result.brazilians.notAllowed).toEqual([
       players3[2].name,
       players3[3].name,
@@ -66,7 +58,7 @@ describe("Test player age and country verifications", () => {
   });
 
   test("Two americans allowed, two brazilians not allowed", () => {
-    const result = isPlayerAllowed(casino4, players4);
+    const result = isPlayerAllowed(casinoEUA, players4);
     expect(result.americans.allowed).toEqual([
       players4[0].name,
       players4[1].name,
@@ -75,5 +67,13 @@ describe("Test player age and country verifications", () => {
       players4[2].name,
       players4[3].name,
     ]);
+  });
+});
+
+describe("Exercise 5", () => {
+  test("One brazilian allowed 0<length<2", () => {
+    const result = isPlayerAllowed(casinoBR, players1);
+    expect(result.brazilians.allowed.length).toBeGreaterThan(0);
+    expect(result.brazilians.allowed.length).toBeLessThan(2);
   });
 });
