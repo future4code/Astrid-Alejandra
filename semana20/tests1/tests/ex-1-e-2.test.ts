@@ -1,15 +1,15 @@
-import { canUserBuy } from "../src";
-import { user } from "../src/index";
+import { canUserBuy } from "../src/ex-1-e-2";
+import { User } from "../src/ex-1-e-2";
 
-let user1: user = {
+const user1: User = {
   name: "Ástrid",
   credit: 1000,
 };
-let user2: user = {
+const user2: User = {
   name: "Kai",
   credit: 500,
 };
-let user3: user = {
+const user3: User = {
   name: "Moka",
   credit: 300,
 };
