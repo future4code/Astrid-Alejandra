@@ -1,0 +1,9 @@
+CREATE TABLE TDLTask (
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+title VARCHAR(255) NOT NULL,
+deadline DATE NOT NULL,
+status VARCHAR(5) NOT NULL DEFAULT "to_do",
+id_created_by INT NOT NULL,
+description TEXT NOT NULL,
+FOREIGN KEY (id_created_by) REFERENCES TDLUser(id)
+);
