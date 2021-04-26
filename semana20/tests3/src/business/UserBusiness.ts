@@ -92,7 +92,7 @@ export class UserBusiness {
   public async getProfileById(id: string) {
     try {
       const user = await this.userDatabase.getUserById(id);
-      if (user === undefined) {
+      if (!user) {
         throw new CustomError(404, "User not found");
       }
 
